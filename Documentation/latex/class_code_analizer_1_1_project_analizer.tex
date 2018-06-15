@@ -1,0 +1,139 @@
+\hypertarget{class_code_analizer_1_1_project_analizer}{}\section{Code\+Analizer.\+Project\+Analizer Class Reference}
+\label{class_code_analizer_1_1_project_analizer}\index{Code\+Analizer.\+Project\+Analizer@{Code\+Analizer.\+Project\+Analizer}}
+
+
+Class responsible for gathering stats for whole poject.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_code_analizer_1_1_project_analizer_a4ed8fe8129186288a99dedd7b4966b2b}{Add\+Files\+Set}} (string\mbox{[}$\,$\mbox{]} paths)
+\begin{DoxyCompactList}\small\item\em Adds contributorless analizer for grup of files \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_code_analizer_1_1_project_analizer_a211cc82430d4b716fde6425c3d919be3}{Add\+Contributor}} (string name, string\mbox{[}$\,$\mbox{]} paths)
+\begin{DoxyCompactList}\small\item\em Adds new contributor to the project with set of files that belongs to him \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_code_analizer_1_1_project_analizer_aad0869b232a62de023d48dda1edb9766}{Total\+Lines}} ()
+\begin{DoxyCompactList}\small\item\em Returns total number of line in project \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_code_analizer_1_1_project_analizer_a8e4045d90ae317a8172e3ee5236fb0f6}{Total\+Characters}} ()
+\begin{DoxyCompactList}\small\item\em Retutns total number of characters in project \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_code_analizer_1_1_project_analizer_a6b4d14436cbf5a7bdfe24870fe2209d7}{Total\+Usings}} ()
+\begin{DoxyCompactList}\small\item\em Counts number of usings/imports etc. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_code_analizer_1_1_project_analizer_acf4aae301520f5a14168668007c39cf6}{List\+All\+Files}} ()
+\begin{DoxyCompactList}\small\item\em List all files with thier statistics\+: lines, characters, usings, empty lines, characters/line... \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_code_analizer_1_1_project_analizer_a1403b55c5ff8ed558878246b5ff67ed1}{Contribution}} (Contribution\+Type type)
+\begin{DoxyCompactList}\small\item\em Creates contribution log of specified type \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class responsible for gathering stats for whole poject. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_code_analizer_1_1_project_analizer_a211cc82430d4b716fde6425c3d919be3}\label{class_code_analizer_1_1_project_analizer_a211cc82430d4b716fde6425c3d919be3}} 
+\index{Code\+Analizer\+::\+Project\+Analizer@{Code\+Analizer\+::\+Project\+Analizer}!Add\+Contributor@{Add\+Contributor}}
+\index{Add\+Contributor@{Add\+Contributor}!Code\+Analizer\+::\+Project\+Analizer@{Code\+Analizer\+::\+Project\+Analizer}}
+\subsubsection{\texorpdfstring{Add\+Contributor()}{AddContributor()}}
+{\footnotesize\ttfamily void Code\+Analizer.\+Project\+Analizer.\+Add\+Contributor (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string \mbox{[}$\,$\mbox{]}}]{paths }\end{DoxyParamCaption})}
+
+
+
+Adds new contributor to the project with set of files that belongs to him 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of contributor\\
+\hline
+{\em paths} & Paths to contributors files\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_code_analizer_1_1_project_analizer_a4ed8fe8129186288a99dedd7b4966b2b}\label{class_code_analizer_1_1_project_analizer_a4ed8fe8129186288a99dedd7b4966b2b}} 
+\index{Code\+Analizer\+::\+Project\+Analizer@{Code\+Analizer\+::\+Project\+Analizer}!Add\+Files\+Set@{Add\+Files\+Set}}
+\index{Add\+Files\+Set@{Add\+Files\+Set}!Code\+Analizer\+::\+Project\+Analizer@{Code\+Analizer\+::\+Project\+Analizer}}
+\subsubsection{\texorpdfstring{Add\+Files\+Set()}{AddFilesSet()}}
+{\footnotesize\ttfamily void Code\+Analizer.\+Project\+Analizer.\+Add\+Files\+Set (\begin{DoxyParamCaption}\item[{string \mbox{[}$\,$\mbox{]}}]{paths }\end{DoxyParamCaption})}
+
+
+
+Adds contributorless analizer for grup of files 
+
+
+\begin{DoxyParams}{Parameters}
+{\em paths} & Paths of files to add\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_code_analizer_1_1_project_analizer_a1403b55c5ff8ed558878246b5ff67ed1}\label{class_code_analizer_1_1_project_analizer_a1403b55c5ff8ed558878246b5ff67ed1}} 
+\index{Code\+Analizer\+::\+Project\+Analizer@{Code\+Analizer\+::\+Project\+Analizer}!Contribution@{Contribution}}
+\index{Contribution@{Contribution}!Code\+Analizer\+::\+Project\+Analizer@{Code\+Analizer\+::\+Project\+Analizer}}
+\subsubsection{\texorpdfstring{Contribution()}{Contribution()}}
+{\footnotesize\ttfamily string Code\+Analizer.\+Project\+Analizer.\+Contribution (\begin{DoxyParamCaption}\item[{Contribution\+Type}]{type }\end{DoxyParamCaption})}
+
+
+
+Creates contribution log of specified type 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Type of generation log\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String contains generated log
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_code_analizer_1_1_project_analizer_acf4aae301520f5a14168668007c39cf6}\label{class_code_analizer_1_1_project_analizer_acf4aae301520f5a14168668007c39cf6}} 
+\index{Code\+Analizer\+::\+Project\+Analizer@{Code\+Analizer\+::\+Project\+Analizer}!List\+All\+Files@{List\+All\+Files}}
+\index{List\+All\+Files@{List\+All\+Files}!Code\+Analizer\+::\+Project\+Analizer@{Code\+Analizer\+::\+Project\+Analizer}}
+\subsubsection{\texorpdfstring{List\+All\+Files()}{ListAllFiles()}}
+{\footnotesize\ttfamily string Code\+Analizer.\+Project\+Analizer.\+List\+All\+Files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+List all files with thier statistics\+: lines, characters, usings, empty lines, characters/line... 
+
+\begin{DoxyReturn}{Returns}
+string containig those informations
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_code_analizer_1_1_project_analizer_a8e4045d90ae317a8172e3ee5236fb0f6}\label{class_code_analizer_1_1_project_analizer_a8e4045d90ae317a8172e3ee5236fb0f6}} 
+\index{Code\+Analizer\+::\+Project\+Analizer@{Code\+Analizer\+::\+Project\+Analizer}!Total\+Characters@{Total\+Characters}}
+\index{Total\+Characters@{Total\+Characters}!Code\+Analizer\+::\+Project\+Analizer@{Code\+Analizer\+::\+Project\+Analizer}}
+\subsubsection{\texorpdfstring{Total\+Characters()}{TotalCharacters()}}
+{\footnotesize\ttfamily int Code\+Analizer.\+Project\+Analizer.\+Total\+Characters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retutns total number of characters in project 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_code_analizer_1_1_project_analizer_aad0869b232a62de023d48dda1edb9766}\label{class_code_analizer_1_1_project_analizer_aad0869b232a62de023d48dda1edb9766}} 
+\index{Code\+Analizer\+::\+Project\+Analizer@{Code\+Analizer\+::\+Project\+Analizer}!Total\+Lines@{Total\+Lines}}
+\index{Total\+Lines@{Total\+Lines}!Code\+Analizer\+::\+Project\+Analizer@{Code\+Analizer\+::\+Project\+Analizer}}
+\subsubsection{\texorpdfstring{Total\+Lines()}{TotalLines()}}
+{\footnotesize\ttfamily int Code\+Analizer.\+Project\+Analizer.\+Total\+Lines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns total number of line in project 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_code_analizer_1_1_project_analizer_a6b4d14436cbf5a7bdfe24870fe2209d7}\label{class_code_analizer_1_1_project_analizer_a6b4d14436cbf5a7bdfe24870fe2209d7}} 
+\index{Code\+Analizer\+::\+Project\+Analizer@{Code\+Analizer\+::\+Project\+Analizer}!Total\+Usings@{Total\+Usings}}
+\index{Total\+Usings@{Total\+Usings}!Code\+Analizer\+::\+Project\+Analizer@{Code\+Analizer\+::\+Project\+Analizer}}
+\subsubsection{\texorpdfstring{Total\+Usings()}{TotalUsings()}}
+{\footnotesize\ttfamily int Code\+Analizer.\+Project\+Analizer.\+Total\+Usings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Counts number of usings/imports etc. 
+
+\begin{DoxyReturn}{Returns}
+Number of lines containig usings/imports etc.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Project\+Analizer.\+cs\end{DoxyCompactItemize}

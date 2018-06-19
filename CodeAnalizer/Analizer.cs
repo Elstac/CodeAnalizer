@@ -7,7 +7,8 @@ using System.IO;
 namespace CodeAnalizer
 {
     /// <summary>
-    /// Class responsible for ghatering data from set of files. "Dataminer for multiple files" and Pair filenames with stats.
+    /// Class responsible for ghatering data from set of files. "Dataminer for multiple files" 
+    /// and Pair filenames with stats.
     /// </summary>
     public class Analizer
     {
@@ -18,7 +19,10 @@ namespace CodeAnalizer
         {
             this.paths=paths;
         }
-
+        /// <summary>
+        /// Lists all files in file set with thier statistics( lines, empty lines, chracters...).
+        /// </summary>
+        /// <returns>String containing list of files</returns>
         public string AnalizeFiles()
         {
             StringBuilder ret = new StringBuilder();
@@ -30,6 +34,7 @@ namespace CodeAnalizer
                 ret.Append("Empty Lines: "+dataminer.CountEmpty(path));
                 ret.Append(" Characters: "+dataminer.CountCharacters(path)+"\n");
             }
+            
             return ret.ToString();
         }
 
@@ -52,6 +57,10 @@ namespace CodeAnalizer
             }
             return ret;
         }
+        /// <summary>
+        /// Counts all characters in file set.
+        /// </summary>
+        /// <returns></returns>
         public int GetCharacktersCount()
         {
             int ret = 0;
@@ -61,6 +70,7 @@ namespace CodeAnalizer
             }
             return ret;
         }
+
         public int GetUsingsCount()
         {
             int ret = 0;
@@ -70,16 +80,36 @@ namespace CodeAnalizer
             }
             return ret;
         }
-
+        /// <summary>
+        /// Counts all lines cintaing a comments.
+        /// </summary>
+        /// <returns>Number of comment lines</returns>
         public int GetCommentLines()
         {
             int ret = 0;
             foreach (var path in paths)
             {
-                ret += dataminer.CountComment(path);
+                ret += dataminer.CountComments(path);
             }
             return ret;
         }
+        /// <summary>
+        /// Counts all methods in file set. Temprorary doesnt count: static, override, abstract, virtual methods.
+        /// </summary>
+        /// <returns>Number of methods</returns>
+        public int GetMethodsCount()
+        {
+            int ret = 0;
+            foreach (var path in paths)
+            {
+                ret += dataminer.CountMethods(path);
+            }
+            return ret;
+        }
+        /// <summary>
+        /// Finds largest file in file set.
+        /// </summary>
+        /// <returns>String contains path to finded file or meesage saing that that file doesnt exist</returns>
         public string GetLargestFile()
         {
             string ret="There is no largest file";
@@ -90,6 +120,27 @@ namespace CodeAnalizer
                 if (maxChar < tmp)
                 {
                     maxChar = tmp;
+                    ret = path;
+                }
+            }
+
+            return ret;
+        }
+        /// <summary>
+        /// Finds smallest file in file set.
+        /// </summary>
+        /// <returns>String contains path to finded file or meesage saing that file doesnt exist</returns>
+        public string GetSmallestFile()
+        {
+            string ret = "There is no smallest file";
+
+            int minChar = dataminer.CountCharacters(paths[0]), tmp;
+            foreach (var path in paths)
+            {
+                tmp = dataminer.CountCharacters(path);
+                if (minChar > tmp)
+                {
+                    minChar = tmp;
                     ret = path;
                 }
             }

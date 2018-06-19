@@ -22,12 +22,12 @@ namespace CodeAnalizer
         public bool IsMethod(string text, int templateIndex)
         {
             text = StringEditor.GetRawText(text);
-            if (text.Length < 6)
-                return false;
 
             string tmp;
             foreach (var item in templates[templateIndex])
             {
+                if (text.Length < item.Length)
+                    return false;
                 if (templateIndex == methodName)
                     RemoveMethodName(ref text);
 
@@ -38,7 +38,6 @@ namespace CodeAnalizer
                         return true;
                     else
                        return IsMethod(text.Substring(tmp.Length), templateIndex + 1);
-
                 }
             }
             return false;

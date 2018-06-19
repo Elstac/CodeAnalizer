@@ -77,7 +77,7 @@ namespace CodeAnalizerTests
         public void CountCommentsTest()
         {
             int expected = 5;
-            int output = miner.CountComment(testPath);
+            int output = miner.CountComments(testPath);
             Assert.AreEqual(expected, output);
         }
     }

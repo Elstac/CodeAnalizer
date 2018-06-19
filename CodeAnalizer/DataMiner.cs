@@ -101,7 +101,7 @@ namespace CodeAnalizer
             return ret;
         }
 
-        public int CountComment(string path)
+        public int CountComments(string path)
         {
             int ret = 0;
             FileStream file = new FileStream(path, FileMode.Open);
@@ -187,23 +187,6 @@ namespace CodeAnalizer
                 opendComment = false;
             return true;
         }
-        //private bool IsMethod(string text, int templateIndex)
-        //{
-        //    text = StringEditor.GetRawText(text);
-        //    string tmp;
-        //    foreach (var item in methodTemplates[templateIndex])
-        //    {
-        //        tmp = text.Substring(0, item.Length);
-        //        if (tmp == item)
-        //        {
-        //            if (templateIndex == methodTemplates.Length - 1)
-        //                return true;
-        //            else
-        //                IsMethod(tmp, templateIndex + 1);
-                        
-        //        }
-        //    }
-        //    return false;
-        //}
+
     }
 }

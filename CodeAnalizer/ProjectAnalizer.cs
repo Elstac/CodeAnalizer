@@ -113,12 +113,13 @@ namespace CodeAnalizer
                 foreach (Contributor contributor in contributors)
                 {
                     int lines = contributor.Analizer.GetLinesCount(), chars = contributor.Analizer.GetCharacktersCount(),
-                        commentsL = contributor.Analizer.GetCommentLines();
+                        commentsL = contributor.Analizer.GetCommentLines(), met = contributor.Analizer.GetMethodsCount();
                     ret.Append(contributor.Name + ":\n" + "Lines: " + lines +
-                        " Characters: " + chars + 
-                        " Empty Lines: " + contributor.Analizer.GetEmptyLines() +
-                        " Character per Line: "+(float)chars/lines +
-                        " Comments lines: " + commentsL + "\n");
+                        " | Characters: " + chars +
+                        " | Empty Lines: " + contributor.Analizer.GetEmptyLines() +
+                        " | Character per Line: " + (float)chars/lines +
+                        " | Comments lines: " + commentsL +
+                        " | Methods: " + met+"\n");
                 }
             }
             else if (type == ContributionType.Procentage)
@@ -143,6 +144,18 @@ namespace CodeAnalizer
                     ret.Append(contributor.Name+":\n"+ contributor.Analizer.AnalizeFiles());
                 }
             }
+            return ret.ToString();
+        }
+
+        public string GetSecondaryStats()
+        {
+            StringBuilder ret = new StringBuilder();
+            foreach (var item in contributors)
+            {
+                ret.Append(item.Name + ":\n" +
+                    "Largest File: " + item.Analizer.GetLargestFile()+", Smallest File: " + item.Analizer.GetSmallestFile()+"\n");
+            }
+
             return ret.ToString();
         }
 

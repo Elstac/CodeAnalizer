@@ -55,7 +55,7 @@ namespace CodeAnalizerTests
         public void FindGoodMethodTest()
         {
             bool expected = true;
-            string input = "public void Gibber(int giber)";
+            string input = "public void f()";
             bool output = finder.IsMethod(input, 0);
             Assert.AreEqual(expected,output );
         }

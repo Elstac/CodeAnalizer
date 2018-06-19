@@ -27,6 +27,7 @@ namespace CodeAnalizer
 
             Console.WriteLine("File contribution:\n{0}",kozak.Contribution(ContributionType.Files));
             Console.WriteLine("Contribution:\n a) in numbers:\n{0}\n b) procentage:\n{1}",kozak.Contribution(ContributionType.Numbers),kozak.Contribution(ContributionType.Procentage));
+            Console.WriteLine("Secondary statistics:\n"+kozak.GetSecondaryStats());
             //Console.WriteLine("Project Numbers in total:\nL: "+kozak.TotalLines()+" C: "+kozak.TotalCharacters()+" Usings "+kozak.TotalUsings());
             //Console.WriteLine("Project II:\nL: " + second.TotalLines() + " C: " + second.TotalCharacters()+" Usings " + second.TotalUsings());
             Console.ReadKey();

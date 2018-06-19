@@ -22,6 +22,9 @@ namespace CodeAnalizer
         public bool IsMethod(string text, int templateIndex)
         {
             text = StringEditor.GetRawText(text);
+            if (text.Length < 6)
+                return false;
+
             string tmp;
             foreach (var item in templates[templateIndex])
             {
@@ -46,7 +49,7 @@ namespace CodeAnalizer
             string nextSymbol = templates[methodName][0];
             int nextSymbolLenght = nextSymbol.Length, endIndex = 0;
 
-            while (text.Substring(endIndex, nextSymbolLenght) != nextSymbol)
+            while (endIndex != text.Length - 1 && text.Substring(endIndex, nextSymbolLenght) != nextSymbol)
                 endIndex++;
 
             text = text.Substring(endIndex);

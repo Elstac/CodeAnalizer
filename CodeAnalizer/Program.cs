@@ -13,7 +13,7 @@ namespace CodeAnalizer
             string[] files;
             Analizer[] analizers = new Analizer[3];
             Lister lister = new Lister( new string[] { ".cs" });
-            ProjectAnalizer kozak = new ProjectAnalizer();
+            ProjectAnalizer kozak = new ProjectAnalizer(Language.Csharp);
             files = lister.listFiles("D:/AnalizerTest/Kuba");
             kozak.AddContributor("Kuba", files);
             files = lister.listFiles("D:/AnalizerTest/Piecia");

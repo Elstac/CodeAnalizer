@@ -20,10 +20,11 @@ namespace CodeAnalizer
         private List<Analizer> analizers;
         private List<Contributor> contributors;
         
-        public ProjectAnalizer()
+        public ProjectAnalizer(Language lan)
         {
             analizers = new List<Analizer>();
             contributors = new List<Contributor>();
+            LanguageSelector.Language = lan;
         }
         /// <summary>
         /// Adds contributorless analizer for grup of files

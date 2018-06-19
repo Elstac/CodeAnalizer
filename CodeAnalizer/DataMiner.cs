@@ -19,7 +19,7 @@ namespace CodeAnalizer
     public class DataMiner
     {
         private MethodsFinder finder;
-
+        private bool opendComment = false;
         public DataMiner(List<string>[] templates, int nameIndex)
         {
             finder = new MethodsFinder(templates, nameIndex);
@@ -130,7 +130,11 @@ namespace CodeAnalizer
             file.Close();
             return ret;
         }
-
+        /// <summary>
+        /// Counts all methods matching given template
+        /// </summary>
+        /// <param name="path">Path to file to analize</param>
+        /// <returns>Number of methods in file</returns>
         public int CountMethods(string path)
         {
             int ret = 0;
@@ -148,7 +152,11 @@ namespace CodeAnalizer
             return ret;
         }
        
-
+        /// <summary>
+        /// Determines comment type of given string
+        /// </summary>
+        /// <param name="text">Text to analize</param>
+        /// <returns>Type of comment represents given string</returns>
         private CommentType TypeOfComment(string text)
         {
             if (text.Length < 2)
@@ -163,24 +171,39 @@ namespace CodeAnalizer
                 return CommentType.MultipleEnd;
             return CommentType.NoComment;
         }
-
-        private bool IsMethod(string text, int templateIndex)
+        /// <summary>
+        /// Returns true if given text is a comment.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns>Bool value</returns>
+        private bool IsComment( string text)
         {
-            text = StringEditor.GetRawText(text);
-            string tmp;
-            foreach (var item in methodTemplates[templateIndex])
-            {
-                tmp = text.Substring(0, item.Length);
-                if (tmp == item)
-                {
-                    if (templateIndex == methodTemplates.Length - 1)
-                        return true;
-                    else
-                        IsMethod(tmp, templateIndex + 1);
-                        
-                }
-            }
-            return false;
+            CommentType ct =  TypeOfComment(text);
+            if (ct == CommentType.NoComment)
+                return false;
+            if (ct == CommentType.MultipleBegin)
+                opendComment = true;
+            if (ct == CommentType.MultipleEnd&& opendComment)
+                opendComment = false;
+            return true;
         }
+        //private bool IsMethod(string text, int templateIndex)
+        //{
+        //    text = StringEditor.GetRawText(text);
+        //    string tmp;
+        //    foreach (var item in methodTemplates[templateIndex])
+        //    {
+        //        tmp = text.Substring(0, item.Length);
+        //        if (tmp == item)
+        //        {
+        //            if (templateIndex == methodTemplates.Length - 1)
+        //                return true;
+        //            else
+        //                IsMethod(tmp, templateIndex + 1);
+                        
+        //        }
+        //    }
+        //    return false;
+        //}
     }
 }

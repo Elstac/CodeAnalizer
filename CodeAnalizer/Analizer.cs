@@ -11,7 +11,7 @@ namespace CodeAnalizer
     /// </summary>
     public class Analizer
     {
-        private DataMiner dataminer = new DataMiner();
+        private DataMiner dataminer = new DataMiner(LanguageSelector.GetMethodTemlate(),LanguageSelector.GetNamePosition());
         private string[] paths;
 
         public Analizer(string[] paths)

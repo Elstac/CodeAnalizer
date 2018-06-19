@@ -17,7 +17,8 @@ namespace CodeAnalizerTests
         public void PrepareTestFile()
         {
             string[][] templates;
-            miner = new DataMiner();
+            LanguageSelector.Language = Language.Csharp;
+            miner = new DataMiner(LanguageSelector.GetMethodTemlate(),LanguageSelector.GetNamePosition());
             
             testPath = "D:/Test.txt";
             //File.Create(testPath);

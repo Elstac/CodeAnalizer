@@ -15,7 +15,7 @@ namespace CodeAnalizer
             allowedFormats = formats;
         }
 
-        public string[] listFiles(string directory)
+        public string[] ListFiles(string directory)
         {
             string[] tmp = Directory.GetFiles(directory);
             List<string> ret = new List<string>();

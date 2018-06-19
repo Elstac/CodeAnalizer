@@ -12,20 +12,26 @@ namespace CodeAnalizerTests
     {
         private MethodsFinder finder;
         [SetUp]
-        public void prepareFinder()
+        public void PrepareFinder()
         {
             List<string>[] tmp = new List<string>[3];
-            tmp[0] = new List<string>();
-            tmp[0].Add("public");
-            tmp[0].Add("private");
-            tmp[0].Add("protected");
+            tmp[0] = new List<string>
+            {
+                "public",
+                "private",
+                "protected"
+            };
 
-            tmp[1] = new List<string>();
-            tmp[1].Add("void");
-            tmp[1].Add("int");
+            tmp[1] = new List<string>
+            {
+                "void",
+                "int"
+            };
 
-            tmp[2] = new List<string>();
-            tmp[2].Add("(");
+            tmp[2] = new List<string>
+            {
+                "("
+            };
 
             finder = new MethodsFinder(tmp, 2);
         }

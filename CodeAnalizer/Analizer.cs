@@ -19,16 +19,16 @@ namespace CodeAnalizer
             this.paths=paths;
         }
 
-        public string analizeFiles()
+        public string AnalizeFiles()
         {
             StringBuilder ret = new StringBuilder();
             foreach (var path in paths)
             {
                 
                 ret.Append(path+"\n");
-                ret.Append("Lines: "+ dataminer.countLines(path));
+                ret.Append("Lines: "+ dataminer.CountLines(path));
                 ret.Append("Empty Lines: "+dataminer.CountEmpty(path));
-                ret.Append(" Characters: "+dataminer.countCharacters(path)+"\n");
+                ret.Append(" Characters: "+dataminer.CountCharacters(path)+"\n");
             }
             return ret.ToString();
         }
@@ -38,7 +38,7 @@ namespace CodeAnalizer
             int ret = 0;
             foreach (var path in paths)
             {
-                ret += dataminer.countLines(path);
+                ret += dataminer.CountLines(path);
             }
             return ret;
         }
@@ -57,7 +57,7 @@ namespace CodeAnalizer
             int ret = 0;
             foreach (var path in paths)
             {
-                ret += dataminer.countCharacters(path);
+                ret += dataminer.CountCharacters(path);
             }
             return ret;
         }
@@ -66,7 +66,7 @@ namespace CodeAnalizer
             int ret = 0;
             foreach (var path in paths)
             {
-                ret += dataminer.countUsings(path);
+                ret += dataminer.CountUsings(path);
             }
             return ret;
         }
@@ -86,7 +86,7 @@ namespace CodeAnalizer
             int maxChar = 0,tmp;
             foreach (var path in paths)
             {
-                tmp = dataminer.countCharacters(path);
+                tmp = dataminer.CountCharacters(path);
                 if (maxChar < tmp)
                 {
                     maxChar = tmp;

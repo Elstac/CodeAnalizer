@@ -14,11 +14,11 @@ namespace CodeAnalizer
             Analizer[] analizers = new Analizer[3];
             Lister lister = new Lister( new string[] { ".cs" });
             ProjectAnalizer kozak = new ProjectAnalizer(Language.Csharp);
-            files = lister.listFiles("D:/AnalizerTest/Kuba");
+            files = lister.ListFiles("D:/AnalizerTest/Kuba");
             kozak.AddContributor("Kuba", files);
-            files = lister.listFiles("D:/AnalizerTest/Piecia");
+            files = lister.ListFiles("D:/AnalizerTest/Piecia");
             kozak.AddContributor("Piecia", files);
-            files = lister.listFiles("D:/AnalizerTest/Michal");
+            files = lister.ListFiles("D:/AnalizerTest/Michal");
             kozak.AddContributor("Michal", files);
 
             //ProjectAnalizer second = new ProjectAnalizer();

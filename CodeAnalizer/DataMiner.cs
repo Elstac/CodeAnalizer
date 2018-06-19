@@ -29,7 +29,7 @@ namespace CodeAnalizer
         /// </summary>
         /// <param name="path">Path to file</param>
         /// <returns>Number of lines in given file</returns>
-        public int countLines(string path)
+        public int CountLines(string path)
         {
             FileStream file = new FileStream(path, FileMode.Open);
             StreamReader sr = new StreamReader(file);
@@ -65,7 +65,7 @@ namespace CodeAnalizer
             file.Close();
             return ret;
         }
-        public int countUsings(string path)
+        public int CountUsings(string path)
         {
             FileStream file = new FileStream(path, FileMode.Open);
             StreamReader sr = new StreamReader(file);
@@ -86,7 +86,7 @@ namespace CodeAnalizer
         /// </summary>
         /// <param name="path">Path to the file</param>
         /// <returns>Number of characters in file</returns>
-        public int countCharacters(string path)
+        public int CountCharacters(string path)
         {
             int ret = 0;
             FileStream file = new FileStream(path, FileMode.Open);

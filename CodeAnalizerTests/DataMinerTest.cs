@@ -16,7 +16,6 @@ namespace CodeAnalizerTests
         [SetUp]
         public void PrepareTestFile()
         {
-            string[][] templates;
             LanguageSelector.Language = Language.Csharp;
             miner = new DataMiner(LanguageSelector.GetMethodTemlate(),LanguageSelector.GetNamePosition());
             
@@ -43,21 +42,21 @@ namespace CodeAnalizerTests
         public void CountCharsTest()
         {
             int expected = 171;
-            int output = miner.countCharacters(testPath);
+            int output = miner.CountCharacters(testPath);
             Assert.AreEqual(expected, output);
         }
         [Test]
         public void CountLinesTest()
         {
             int expected = 12;
-            int output = miner.countLines(testPath);
+            int output = miner.CountLines(testPath);
             Assert.AreEqual(expected, output);
         }
         [Test]
         public void CountUsingsTest()
         {
             int expected = 2;
-            int output = miner.countUsings(testPath);
+            int output = miner.CountUsings(testPath);
             Assert.AreEqual(expected, output);
         }
         [Test]

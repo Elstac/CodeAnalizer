@@ -93,7 +93,7 @@ namespace CodeAnalizer
             StringBuilder ret = new StringBuilder();
             foreach (Analizer analizer in analizers)
             {
-                ret.Append( analizer.analizeFiles());
+                ret.Append( analizer.AnalizeFiles());
             }
             return ret.ToString();
         }
@@ -140,7 +140,7 @@ namespace CodeAnalizer
             {
                 foreach (Contributor contributor in contributors)
                 {
-                    ret.Append(contributor.Name+":\n"+ contributor.Analizer.analizeFiles());
+                    ret.Append(contributor.Name+":\n"+ contributor.Analizer.AnalizeFiles());
                 }
             }
             return ret.ToString();

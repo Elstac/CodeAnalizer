@@ -144,7 +144,7 @@ namespace CodeAnalizer
             while ((line = sr.ReadLine()) != null)
             {
                 line =StringEditor.GetRawText(line);
-                if (finder.IsMethod(line,0))
+                if (finder.IsMethod(line))
                     ret++;
             }
 

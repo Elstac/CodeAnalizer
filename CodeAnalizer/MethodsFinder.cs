@@ -15,10 +15,26 @@ namespace CodeAnalizer
         public MethodsFinder(List<string>[] templates)
         {
             this.templates = templates;
-            
         }
 
-        public bool IsMethod(string text, int templateIndex)
+        /// <summary>
+        /// Checks if given string is a method definition.
+        /// </summary>
+        /// <param name="text">Text to analize</param>
+        /// <returns>True if text is method definition.</returns>
+        public bool IsMethod(string text)
+        {
+            return IsMethodRec(text, 0);
+        }
+        /// <summary>
+        /// Recursive method for determining if string is method definition. Uses templates given in constructor,
+        /// in which last list is list of types of method definition part: #- required part, +- alternative part,
+        /// others- part following method name.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="templateIndex"></param>
+        /// <returns></returns>
+        private bool IsMethodRec(string text, int templateIndex)
         {
             
             text = StringEditor.GetRawText(text);
@@ -48,14 +64,18 @@ namespace CodeAnalizer
                 tmp = text.Substring(0, item.Length);
                 if (tmp == item)
                 {
-                       return IsMethod(text.Substring(tmp.Length), templateIndex + 1 +(alter?1:0));
+                       return IsMethodRec(text.Substring(tmp.Length), templateIndex + 1 +(alter?1:0));
                 }
             }
             if (alter)
-                return IsMethod(text, templateIndex + 1);
+                return IsMethodRec(text, templateIndex + 1);
             return false;
         }
-
+        /// <summary>
+        /// Removes all characters in tring from beggining to given symbol( string).
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="nextSymbol">Symbol defining end of erasing</param>
         public void RemoveMethodName( ref string text,string nextSymbol)
         {
             int nextSymbolLenght = nextSymbol.Length, endIndex = 0;

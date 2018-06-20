@@ -68,7 +68,7 @@ namespace CodeAnalizerTests
         {
             bool expected = true;
             string input = "public void f();";
-            bool output = finder.IsMethod(input, 0);
+            bool output = finder.IsMethod(input);
             Assert.AreEqual(expected,output );
         }
         [Test]
@@ -76,7 +76,7 @@ namespace CodeAnalizerTests
         {
             bool expected = true;
             string input = "public abstract override void f(int gej);";
-            bool output = finder.IsMethod(input, 0);
+            bool output = finder.IsMethod(input);
             Assert.AreEqual(expected, output);
         }
         [Test]
@@ -84,7 +84,7 @@ namespace CodeAnalizerTests
         {
             bool expected = false;
             string input = "public int gibber;";
-            Assert.AreEqual(expected, finder.IsMethod(input, 0));
+            Assert.AreEqual(expected, finder.IsMethod(input));
         }
 
     }

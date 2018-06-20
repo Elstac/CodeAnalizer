@@ -12,40 +12,52 @@ namespace CodeAnalizer
     public class MethodsFinder
     {
         private List<string>[] templates;
-        private int methodName;
-        public MethodsFinder(List<string>[] templates, int methodName)
+        public MethodsFinder(List<string>[] templates)
         {
             this.templates = templates;
-            this.methodName = methodName;
+            
         }
 
         public bool IsMethod(string text, int templateIndex)
         {
+            
             text = StringEditor.GetRawText(text);
+            string tmp, type;
+            bool alter = false;
+            type = templates[templates.Length - 1][templateIndex];
 
-            string tmp;
+            if (type != "#" && type != "+")
+            {
+                try
+                {
+                    RemoveMethodName(ref text, type);
+                    return (text.Substring(0, type.Length) == type);
+                }
+                catch (ArgumentOutOfRangeException e)
+                {
+                    return false;
+                }
+            }
+
+            alter = (type == "+");
             foreach (var item in templates[templateIndex])
             {
                 if (text.Length < item.Length)
                     return false;
-                if (templateIndex == methodName)
-                    RemoveMethodName(ref text);
 
                 tmp = text.Substring(0, item.Length);
                 if (tmp == item)
                 {
-                    if (templateIndex == templates.Length - 1)
-                        return true;
-                    else
-                       return IsMethod(text.Substring(tmp.Length), templateIndex + 1);
+                       return IsMethod(text.Substring(tmp.Length), templateIndex + 1 +(alter?1:0));
                 }
             }
+            if (alter)
+                return IsMethod(text, templateIndex + 1);
             return false;
         }
 
-        public void RemoveMethodName( ref string text)
+        public void RemoveMethodName( ref string text,string nextSymbol)
         {
-            string nextSymbol = templates[methodName][0];
             int nextSymbolLenght = nextSymbol.Length, endIndex = 0;
 
             while (endIndex != text.Length - 1 && text.Substring(endIndex, nextSymbolLenght) != nextSymbol)

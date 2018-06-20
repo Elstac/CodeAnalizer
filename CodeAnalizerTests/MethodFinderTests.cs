@@ -14,33 +14,45 @@ namespace CodeAnalizerTests
         [SetUp]
         public void PrepareFinder()
         {
-            List<string>[] tmp = new List<string>[3];
-            tmp[0] = new List<string>
+            List<List<string>> tmp = new List<List<string>>
             {
-                "public",
-                "private",
-                "protected"
+                new List<string>
+                {
+                    "public",
+                    "private",
+                    "protected"
+                },
+                new List<string>
+                {
+                    "static",
+                    "abstract",
+                    "override",
+                    "seald"
+                },
+                new List<string>
+                {
+                    "void",
+                    "int",
+                    "float",
+                    "double"
+                },
+                new List<string>
+                {
+                    "#",
+                    "+",
+                    "#",
+                    "("
+                },
             };
-
-            tmp[1] = new List<string>
-            {
-                "void",
-                "int"
-            };
-
-            tmp[2] = new List<string>
-            {
-                "("
-            };
-
-            finder = new MethodsFinder(tmp, 2);
+            finder = new MethodsFinder(tmp.ToArray());
         }
+        
         [Test]
         public void RemoveNameTest()
         {
             string expected = "(int test1,int test2)";
             string input = "Gibber(int test1,int test2)";
-            finder.RemoveMethodName(ref input);
+            finder.RemoveMethodName(ref input,"(");
             Assert.AreEqual(expected,input );
         }
         [Test]
@@ -48,16 +60,24 @@ namespace CodeAnalizerTests
         {
             string expected = "(int test1,int test2)";
             string input = "(int test1,int test2)";
-            finder.RemoveMethodName(ref input);
+            finder.RemoveMethodName(ref input,"(");
             Assert.AreEqual(expected, input);
         }
         [Test]
-        public void FindGoodMethodTest()
+        public void FindSimpleMethodTest()
         {
             bool expected = true;
-            string input = "public void f()";
+            string input = "public void f();";
             bool output = finder.IsMethod(input, 0);
             Assert.AreEqual(expected,output );
+        }
+        [Test]
+        public void FindComplexMethodTest()
+        {
+            bool expected = true;
+            string input = "public abstract override void f(int gej);";
+            bool output = finder.IsMethod(input, 0);
+            Assert.AreEqual(expected, output);
         }
         [Test]
         public void FindBadMethodTest()
@@ -66,5 +86,6 @@ namespace CodeAnalizerTests
             string input = "public int gibber;";
             Assert.AreEqual(expected, finder.IsMethod(input, 0));
         }
+
     }
 }

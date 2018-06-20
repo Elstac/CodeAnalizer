@@ -22,7 +22,7 @@ namespace CodeAnalizer
         private bool opendComment = false;
         public DataMiner(List<string>[] templates, int nameIndex)
         {
-            finder = new MethodsFinder(templates, nameIndex);
+            finder = new MethodsFinder(templates);
         }
         /// <summary>
         /// Counts number of lines( empty or not) in given file.

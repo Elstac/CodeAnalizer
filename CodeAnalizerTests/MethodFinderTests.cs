@@ -44,7 +44,7 @@ namespace CodeAnalizerTests
                     "("
                 },
             };
-            finder = new MethodsFinder(tmp);
+            finder = new MethodsFinder(tmp.ToArray());
         }
         
         [Test]
@@ -86,5 +86,6 @@ namespace CodeAnalizerTests
             string input = "public int gibber;";
             Assert.AreEqual(expected, finder.IsMethod(input, 0));
         }
+
     }
 }

@@ -20,26 +20,39 @@ namespace CodeAnalizer
 
         public bool IsMethod(string text, int templateIndex)
         {
+            
             text = StringEditor.GetRawText(text);
-            bool alter = true;
-            string tmp;
+            string tmp, type;
+            bool alter = false;
+            type = templates[templates.Length - 1][templateIndex];
+
+            if (type != "#" && type != "+")
+            {
+                try
+                {
+                    RemoveMethodName(ref text, type);
+                    return (text.Substring(0, type.Length) == type);
+                }
+                catch (ArgumentOutOfRangeException e)
+                {
+                    return false;
+                }
+            }
+
+            alter = (type == "+");
             foreach (var item in templates[templateIndex])
             {
-                if(item == "+" || item=="#")
-                    alter = (item == "+");
-
-                if (text.Length < item.Length&&!alter)
+                if (text.Length < item.Length)
                     return false;
 
                 tmp = text.Substring(0, item.Length);
                 if (tmp == item)
                 {
-                    if (templateIndex == templates.Length - 1&&!alter)
-                        return true;
-                    else
-                       return IsMethod(text.Substring(tmp.Length), templateIndex + 1);
+                       return IsMethod(text.Substring(tmp.Length), templateIndex + 1 +(alter?1:0));
                 }
             }
+            if (alter)
+                return IsMethod(text, templateIndex + 1);
             return false;
         }
 

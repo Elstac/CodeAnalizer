@@ -80,6 +80,22 @@ namespace CodeAnalizerTests
             Assert.AreEqual(expected, output);
         }
         [Test]
+        public void FindComplexReturnMethodTest()
+        {
+            bool expected = true;
+            string input = "public abstract override string[][] f(int gej);";
+            bool output = finder.IsMethod(input);
+            Assert.AreEqual(expected, output);
+        }
+        [Test]
+        public void FindListReturnMethodTest()
+        {
+            bool expected = true;
+            string input = "public List<string> f(int gej);";
+            bool output = finder.IsMethod(input);
+            Assert.AreEqual(expected, output);
+        }
+        [Test]
         public void FindBadMethodTest()
         {
             bool expected = false;

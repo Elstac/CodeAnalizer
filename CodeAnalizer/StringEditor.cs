@@ -25,5 +25,14 @@ namespace CodeAnalizer
 
             return ret;
         }
+
+        public static string GetNextWord(string text)
+        {
+            int index = 0;
+            text = GetRawText(text);
+            while (text[index] != ' ')
+                index++;
+            return text.Substring(0, index);
+        }
     }
 }

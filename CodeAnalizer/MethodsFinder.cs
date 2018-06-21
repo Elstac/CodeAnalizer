@@ -61,11 +61,11 @@ namespace CodeAnalizer
                 if (text.Length < item.Length)
                     return false;
 
-                tmp = text.Substring(0, item.Length);
+                tmp = StringEditor.GetNextWord(text);
 
                 if (tmp == item)
                 {
-                       return IsMethodRec(text.Substring(tmp.Length), templateIndex + 1 +(alter?1:0));
+                       return IsMethodRec(text.Substring(tmp.Length), templateIndex + 1 -(alter?1:0));
                 }
             }
             if (alter)

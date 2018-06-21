@@ -11,7 +11,7 @@ namespace CodeAnalizerTests
     [TestFixture]
     class ListerTests
     {
-        private Lister lister = new Lister(new string[] { ".cs", "xaml.cs" }, new string[] { "D:\\TestFolder\\Layer1\\BadFolder" });
+        private Lister lister = new Lister(new string[] { ".cs", "xaml.cs" }, new string[] { "BadFolder" });
         private string[] paths = new string[] {
                 "D:\\TestFolder\\Layer1",
                 "D:\\TestFolder\\Layer1\\Layer2.1",

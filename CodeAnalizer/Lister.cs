@@ -13,6 +13,7 @@ namespace CodeAnalizer
         public Lister(string[] formats)
         {
             allowedFormats = formats;
+            ignoreArray = new string[] { };
         }
         public Lister(string[] formats, string[] ignore)
         {
@@ -21,7 +22,11 @@ namespace CodeAnalizer
         }
         public string[] ListFiles(string directory)
         {
-            return ListFilesRec(directory);
+            string[] ret = ListFilesRec(directory);
+            if (ret.Length == 0)
+                throw new FileNotFoundException("No valid files found.");
+
+            return ret;
         }
 
 
@@ -49,10 +54,8 @@ namespace CodeAnalizer
             {
                 if (IsIgnored(dir))
                     continue;
-                ret.AddRange(ListFiles(dir));
+                ret.AddRange(ListFilesRec(dir));
             }
-            if (ret.Count == 0)
-                throw new FileNotFoundException("No valid files found.");
 
             return ret.ToArray();    
         }
@@ -60,7 +63,7 @@ namespace CodeAnalizer
         private bool IsIgnored(string dir)
         {
             foreach (var item in ignoreArray)
-                if (dir == item)
+                if (dir.EndsWith(item))
                     return true;
 
             return false;

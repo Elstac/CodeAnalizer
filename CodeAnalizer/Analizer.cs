@@ -32,7 +32,7 @@ namespace CodeAnalizer
                 ret.Append(path+"\n");
                 ret.Append("| Lines: "+ dataminer.CountLines(path));
                 ret.Append(" | Empty Lines: "+dataminer.CountEmpty(path));
-                ret.Append(" | Characters: "+dataminer.CountCharacters(path)+" |");
+                ret.Append(" | Characters: "+dataminer.CountCharacters(path));
                 ret.Append(" | Methods: " + dataminer.CountMethods(path) + " |\n");
 
             }

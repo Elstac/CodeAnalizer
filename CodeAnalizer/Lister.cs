@@ -21,7 +21,16 @@ namespace CodeAnalizer
         }
         public string[] ListFiles(string directory)
         {
+            return ListFilesRec(directory);
+        }
+
+
+
+        private string[] ListFilesRec(string directory)
+        {
             string[] tmp = Directory.GetFiles(directory);
+            string[] dirs = Directory.GetDirectories(directory);
+
             List<string> ret = new List<string>();
 
             foreach (var path in tmp)
@@ -31,13 +40,30 @@ namespace CodeAnalizer
                     if (path.EndsWith(format))
                     {
                         ret.Add(path);
+                        break;
                     }
+                    
                 }
             }
+            foreach (var dir in dirs)
+            {
+                if (IsIgnored(dir))
+                    continue;
+                ret.AddRange(ListFiles(dir));
+            }
+            if (ret.Count == 0)
+                throw new FileNotFoundException("No valid files found.");
 
             return ret.ToArray();    
         }
 
-       
+        private bool IsIgnored(string dir)
+        {
+            foreach (var item in ignoreArray)
+                if (dir == item)
+                    return true;
+
+            return false;
+        }
     }
 }

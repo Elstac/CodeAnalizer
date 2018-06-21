@@ -38,6 +38,11 @@ namespace CodeAnalizerTests
 
             sw.Close();
         }
+        [TearDown]
+        public void CleanFile()
+        {
+            File.Delete("D:/Test.txt");
+        }
         [Test]
         public void CountCharsTest()
         {
@@ -80,5 +85,6 @@ namespace CodeAnalizerTests
             int output = miner.CountComments(testPath);
             Assert.AreEqual(expected, output);
         }
+
     }
 }

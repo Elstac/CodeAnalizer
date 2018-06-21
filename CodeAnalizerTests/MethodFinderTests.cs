@@ -94,6 +94,6 @@ namespace CodeAnalizerTests
             string input = "if(gibber==0)";
             Assert.AreEqual(expected, finder.IsMethod(input));
         }
-
+        
     }
 }

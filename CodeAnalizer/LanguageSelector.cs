@@ -40,18 +40,8 @@ namespace CodeAnalizer
                     },
                     new List<string>
                     {
-                        "void",
-                        "int",
-                        "float",
-                        "double",
-                        "bool",
-                        "long"
-                    },
-                    new List<string>
-                    {
                         "#",
                         "+",
-                        "#",
                         "("
                     },
                 };

@@ -86,11 +86,5 @@ namespace CodeAnalizer
 
             text = text.Substring(endIndex);
         }
-        public void RemoveIndexers(ref string text)
-        {
-            if (!text.EndsWith("[]"))
-                return;
-            text = text.Substring(0, text.Length - 2);
-        }
     }
 }

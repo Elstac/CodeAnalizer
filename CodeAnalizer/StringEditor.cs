@@ -30,8 +30,10 @@ namespace CodeAnalizer
         {
             int index = 0;
             text = GetRawText(text);
-            while (text[index] != ' ')
+
+            while (index!=text.Length&& text[index] != ' ')
                 index++;
+
             return text.Substring(0, index);
         }
     }

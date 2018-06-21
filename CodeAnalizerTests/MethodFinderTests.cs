@@ -31,16 +31,8 @@ namespace CodeAnalizerTests
                 },
                 new List<string>
                 {
-                    "void",
-                    "int",
-                    "float",
-                    "double"
-                },
-                new List<string>
-                {
                     "#",
                     "+",
-                    "#",
                     "("
                 },
             };

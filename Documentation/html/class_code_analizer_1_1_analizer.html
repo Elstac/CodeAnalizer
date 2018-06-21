@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: CodeAnalizer.Analizer Class Reference</title>
+<title>Projects analizer: CodeAnalizer.Analizer Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
-   &#160;<span id="projectnumber">0.1</span>
+   <div id="projectname">Projects analizer
+   &#160;<span id="projectnumber">0.11</span>
    </div>
   </td>
  </tr>
@@ -82,29 +82,159 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae88a3c45078872c308e2c5604248cf50"><td class="memItemLeft" align="right" valign="top"><a id="ae88a3c45078872c308e2c5604248cf50"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Analizer</b> (string[] paths)</td></tr>
 <tr class="separator:ae88a3c45078872c308e2c5604248cf50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd0ea4f2338b139132ff43ac72bd9cf1"><td class="memItemLeft" align="right" valign="top"><a id="acd0ea4f2338b139132ff43ac72bd9cf1"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>analizeFiles</b> ()</td></tr>
-<tr class="separator:acd0ea4f2338b139132ff43ac72bd9cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a16d095345306736f2e7adc3d95a1c8"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_code_analizer_1_1_analizer.html#a9a16d095345306736f2e7adc3d95a1c8">AnalizeFiles</a> ()</td></tr>
+<tr class="memdesc:a9a16d095345306736f2e7adc3d95a1c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lists all files in file set with thier statistics( lines, empty lines, chracters...).  <a href="#a9a16d095345306736f2e7adc3d95a1c8">More...</a><br /></td></tr>
+<tr class="separator:a9a16d095345306736f2e7adc3d95a1c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b7a9f2c835e8f9b43f3d9810e8dd91e"><td class="memItemLeft" align="right" valign="top"><a id="a5b7a9f2c835e8f9b43f3d9810e8dd91e"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>GetLinesCount</b> ()</td></tr>
 <tr class="separator:a5b7a9f2c835e8f9b43f3d9810e8dd91e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a03f7f53bd6e7283a4f91ad0714a922"><td class="memItemLeft" align="right" valign="top"><a id="a0a03f7f53bd6e7283a4f91ad0714a922"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>GetEmptyLines</b> ()</td></tr>
 <tr class="separator:a0a03f7f53bd6e7283a4f91ad0714a922"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97730ca4bd3b1dbe6257779279f0f7f4"><td class="memItemLeft" align="right" valign="top"><a id="a97730ca4bd3b1dbe6257779279f0f7f4"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>GetCharacktersCount</b> ()</td></tr>
+<tr class="memitem:a97730ca4bd3b1dbe6257779279f0f7f4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_code_analizer_1_1_analizer.html#a97730ca4bd3b1dbe6257779279f0f7f4">GetCharacktersCount</a> ()</td></tr>
+<tr class="memdesc:a97730ca4bd3b1dbe6257779279f0f7f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts all characters in file set.  <a href="#a97730ca4bd3b1dbe6257779279f0f7f4">More...</a><br /></td></tr>
 <tr class="separator:a97730ca4bd3b1dbe6257779279f0f7f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24b3b64b468e6e78c6050d4873e21125"><td class="memItemLeft" align="right" valign="top"><a id="a24b3b64b468e6e78c6050d4873e21125"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>GetUsingsCount</b> ()</td></tr>
 <tr class="separator:a24b3b64b468e6e78c6050d4873e21125"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05eb6e6a5592ea98f04b8cd3a146b329"><td class="memItemLeft" align="right" valign="top"><a id="a05eb6e6a5592ea98f04b8cd3a146b329"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>GetLargestFile</b> ()</td></tr>
+<tr class="memitem:aa1c5078ca9d05746785e071c8c9200f6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_code_analizer_1_1_analizer.html#aa1c5078ca9d05746785e071c8c9200f6">GetCommentLines</a> ()</td></tr>
+<tr class="memdesc:aa1c5078ca9d05746785e071c8c9200f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts all lines cintaing a comments.  <a href="#aa1c5078ca9d05746785e071c8c9200f6">More...</a><br /></td></tr>
+<tr class="separator:aa1c5078ca9d05746785e071c8c9200f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac11fc64eb4af5e8470c1c25d1dcb48e2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_code_analizer_1_1_analizer.html#ac11fc64eb4af5e8470c1c25d1dcb48e2">GetMethodsCount</a> ()</td></tr>
+<tr class="memdesc:ac11fc64eb4af5e8470c1c25d1dcb48e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts all methods in file set. Temprorary doesnt count: static, override, abstract, virtual methods.  <a href="#ac11fc64eb4af5e8470c1c25d1dcb48e2">More...</a><br /></td></tr>
+<tr class="separator:ac11fc64eb4af5e8470c1c25d1dcb48e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05eb6e6a5592ea98f04b8cd3a146b329"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_code_analizer_1_1_analizer.html#a05eb6e6a5592ea98f04b8cd3a146b329">GetLargestFile</a> ()</td></tr>
+<tr class="memdesc:a05eb6e6a5592ea98f04b8cd3a146b329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds largest file in file set.  <a href="#a05eb6e6a5592ea98f04b8cd3a146b329">More...</a><br /></td></tr>
 <tr class="separator:a05eb6e6a5592ea98f04b8cd3a146b329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3fb4201ac5fbb69662fcc983c435f41"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_code_analizer_1_1_analizer.html#ac3fb4201ac5fbb69662fcc983c435f41">GetSmallestFile</a> ()</td></tr>
+<tr class="memdesc:ac3fb4201ac5fbb69662fcc983c435f41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds smallest file in file set.  <a href="#ac3fb4201ac5fbb69662fcc983c435f41">More...</a><br /></td></tr>
+<tr class="separator:ac3fb4201ac5fbb69662fcc983c435f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class responsible for ghatering data from set of files. "Dataminer for multiple files" and Pair filenames with stats. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>Analizer.cs</li>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9a16d095345306736f2e7adc3d95a1c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a16d095345306736f2e7adc3d95a1c8">&#9670;&nbsp;</a></span>AnalizeFiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CodeAnalizer.Analizer.AnalizeFiles </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lists all files in file set with thier statistics( lines, empty lines, chracters...). </p>
+<dl class="section return"><dt>Returns</dt><dd>String containing list of files</dd></dl>
+
+</div>
+</div>
+<a id="a97730ca4bd3b1dbe6257779279f0f7f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97730ca4bd3b1dbe6257779279f0f7f4">&#9670;&nbsp;</a></span>GetCharacktersCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CodeAnalizer.Analizer.GetCharacktersCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Counts all characters in file set. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="aa1c5078ca9d05746785e071c8c9200f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1c5078ca9d05746785e071c8c9200f6">&#9670;&nbsp;</a></span>GetCommentLines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CodeAnalizer.Analizer.GetCommentLines </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Counts all lines cintaing a comments. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of comment lines</dd></dl>
+
+</div>
+</div>
+<a id="a05eb6e6a5592ea98f04b8cd3a146b329"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05eb6e6a5592ea98f04b8cd3a146b329">&#9670;&nbsp;</a></span>GetLargestFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CodeAnalizer.Analizer.GetLargestFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds largest file in file set. </p>
+<dl class="section return"><dt>Returns</dt><dd>String contains path to finded file or meesage saing that that file doesnt exist</dd></dl>
+
+</div>
+</div>
+<a id="ac11fc64eb4af5e8470c1c25d1dcb48e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac11fc64eb4af5e8470c1c25d1dcb48e2">&#9670;&nbsp;</a></span>GetMethodsCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CodeAnalizer.Analizer.GetMethodsCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Counts all methods in file set. Temprorary doesnt count: static, override, abstract, virtual methods. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of methods</dd></dl>
+
+</div>
+</div>
+<a id="ac3fb4201ac5fbb69662fcc983c435f41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3fb4201ac5fbb69662fcc983c435f41">&#9670;&nbsp;</a></span>GetSmallestFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CodeAnalizer.Analizer.GetSmallestFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds smallest file in file set. </p>
+<dl class="section return"><dt>Returns</dt><dd>String contains path to finded file or meesage saing that file doesnt exist</dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>C:/Users/Kuba/source/repos/CodeAnalizer/CodeAnalizer/Analizer.cs</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

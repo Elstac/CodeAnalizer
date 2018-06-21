@@ -20,20 +20,45 @@ namespace CodeAnalizer
 
         public static List<string>[] GetMethodTemlate()
         {
-            List<string>[] ret= null;
+            List<List<string>> ret= null;
             if (language == Language.Csharp)
             {
-                ret = new List<string>[3];
-                ret[0] = new List<string>();
-                ret[0].AddRange(new string[] { "public", "private", "protected" });
-                ret[1] = new List<string>();
-                ret[1].AddRange(new string[] { "void", "int", "float", "bool", "string" });
-                ret[2] = new List<string>();
-                ret[2].AddRange(new string[] { "(" });
+                ret = new List<List<string>>
+                {
+                    new List<string>
+                    {
+                        "public",
+                        "private",
+                        "protected"
+                    },
+                    new List<string>
+                    {
+                        "static",
+                        "abstract",
+                        "override",
+                        "seald"
+                    },
+                    new List<string>
+                    {
+                        "void",
+                        "int",
+                        "float",
+                        "double",
+                        "bool",
+                        "long"
+                    },
+                    new List<string>
+                    {
+                        "#",
+                        "+",
+                        "#",
+                        "("
+                    },
+                };
             }
             else
                 throw new NotImplementedException();
-            return ret;
+            return ret.ToArray();
         }
         public static int GetNamePosition()
         {

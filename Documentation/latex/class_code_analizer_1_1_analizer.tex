@@ -11,24 +11,27 @@ Class responsible for ghatering data from set of files. \char`\"{}\+Dataminer fo
 \mbox{\Hypertarget{class_code_analizer_1_1_analizer_ae88a3c45078872c308e2c5604248cf50}\label{class_code_analizer_1_1_analizer_ae88a3c45078872c308e2c5604248cf50}} 
 {\bfseries Analizer} (string\mbox{[}$\,$\mbox{]} paths)
 \item 
-\mbox{\Hypertarget{class_code_analizer_1_1_analizer_acd0ea4f2338b139132ff43ac72bd9cf1}\label{class_code_analizer_1_1_analizer_acd0ea4f2338b139132ff43ac72bd9cf1}} 
-string {\bfseries analize\+Files} ()
-\item 
+string \mbox{\hyperlink{class_code_analizer_1_1_analizer_a9a16d095345306736f2e7adc3d95a1c8}{Analize\+Files}} ()
+\begin{DoxyCompactList}\small\item\em Lists all files in file set with thier statistics( lines, empty lines, chracters...). \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_code_analizer_1_1_analizer_a5b7a9f2c835e8f9b43f3d9810e8dd91e}\label{class_code_analizer_1_1_analizer_a5b7a9f2c835e8f9b43f3d9810e8dd91e}} 
 int {\bfseries Get\+Lines\+Count} ()
 \item 
 \mbox{\Hypertarget{class_code_analizer_1_1_analizer_a0a03f7f53bd6e7283a4f91ad0714a922}\label{class_code_analizer_1_1_analizer_a0a03f7f53bd6e7283a4f91ad0714a922}} 
 int {\bfseries Get\+Empty\+Lines} ()
 \item 
-\mbox{\Hypertarget{class_code_analizer_1_1_analizer_a97730ca4bd3b1dbe6257779279f0f7f4}\label{class_code_analizer_1_1_analizer_a97730ca4bd3b1dbe6257779279f0f7f4}} 
-int {\bfseries Get\+Charackters\+Count} ()
-\item 
+int \mbox{\hyperlink{class_code_analizer_1_1_analizer_a97730ca4bd3b1dbe6257779279f0f7f4}{Get\+Charackters\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Counts all characters in file set. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_code_analizer_1_1_analizer_a24b3b64b468e6e78c6050d4873e21125}\label{class_code_analizer_1_1_analizer_a24b3b64b468e6e78c6050d4873e21125}} 
 int {\bfseries Get\+Usings\+Count} ()
 \item 
-\mbox{\Hypertarget{class_code_analizer_1_1_analizer_a05eb6e6a5592ea98f04b8cd3a146b329}\label{class_code_analizer_1_1_analizer_a05eb6e6a5592ea98f04b8cd3a146b329}} 
-string {\bfseries Get\+Largest\+File} ()
-\end{DoxyCompactItemize}
+int \mbox{\hyperlink{class_code_analizer_1_1_analizer_aa1c5078ca9d05746785e071c8c9200f6}{Get\+Comment\+Lines}} ()
+\begin{DoxyCompactList}\small\item\em Counts all lines cintaing a comments. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_code_analizer_1_1_analizer_ac11fc64eb4af5e8470c1c25d1dcb48e2}{Get\+Methods\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Counts all methods in file set. Temprorary doesnt count\+: static, override, abstract, virtual methods. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_code_analizer_1_1_analizer_a05eb6e6a5592ea98f04b8cd3a146b329}{Get\+Largest\+File}} ()
+\begin{DoxyCompactList}\small\item\em Finds largest file in file set. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_code_analizer_1_1_analizer_ac3fb4201ac5fbb69662fcc983c435f41}{Get\+Smallest\+File}} ()
+\begin{DoxyCompactList}\small\item\em Finds smallest file in file set. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -36,6 +39,87 @@ Class responsible for ghatering data from set of files. \char`\"{}\+Dataminer fo
 
 
 
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_code_analizer_1_1_analizer_a9a16d095345306736f2e7adc3d95a1c8}\label{class_code_analizer_1_1_analizer_a9a16d095345306736f2e7adc3d95a1c8}} 
+\index{Code\+Analizer\+::\+Analizer@{Code\+Analizer\+::\+Analizer}!Analize\+Files@{Analize\+Files}}
+\index{Analize\+Files@{Analize\+Files}!Code\+Analizer\+::\+Analizer@{Code\+Analizer\+::\+Analizer}}
+\subsubsection{\texorpdfstring{Analize\+Files()}{AnalizeFiles()}}
+{\footnotesize\ttfamily string Code\+Analizer.\+Analizer.\+Analize\+Files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lists all files in file set with thier statistics( lines, empty lines, chracters...). 
+
+\begin{DoxyReturn}{Returns}
+String containing list of files
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_code_analizer_1_1_analizer_a97730ca4bd3b1dbe6257779279f0f7f4}\label{class_code_analizer_1_1_analizer_a97730ca4bd3b1dbe6257779279f0f7f4}} 
+\index{Code\+Analizer\+::\+Analizer@{Code\+Analizer\+::\+Analizer}!Get\+Charackters\+Count@{Get\+Charackters\+Count}}
+\index{Get\+Charackters\+Count@{Get\+Charackters\+Count}!Code\+Analizer\+::\+Analizer@{Code\+Analizer\+::\+Analizer}}
+\subsubsection{\texorpdfstring{Get\+Charackters\+Count()}{GetCharacktersCount()}}
+{\footnotesize\ttfamily int Code\+Analizer.\+Analizer.\+Get\+Charackters\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Counts all characters in file set. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_code_analizer_1_1_analizer_aa1c5078ca9d05746785e071c8c9200f6}\label{class_code_analizer_1_1_analizer_aa1c5078ca9d05746785e071c8c9200f6}} 
+\index{Code\+Analizer\+::\+Analizer@{Code\+Analizer\+::\+Analizer}!Get\+Comment\+Lines@{Get\+Comment\+Lines}}
+\index{Get\+Comment\+Lines@{Get\+Comment\+Lines}!Code\+Analizer\+::\+Analizer@{Code\+Analizer\+::\+Analizer}}
+\subsubsection{\texorpdfstring{Get\+Comment\+Lines()}{GetCommentLines()}}
+{\footnotesize\ttfamily int Code\+Analizer.\+Analizer.\+Get\+Comment\+Lines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Counts all lines cintaing a comments. 
+
+\begin{DoxyReturn}{Returns}
+Number of comment lines
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_code_analizer_1_1_analizer_a05eb6e6a5592ea98f04b8cd3a146b329}\label{class_code_analizer_1_1_analizer_a05eb6e6a5592ea98f04b8cd3a146b329}} 
+\index{Code\+Analizer\+::\+Analizer@{Code\+Analizer\+::\+Analizer}!Get\+Largest\+File@{Get\+Largest\+File}}
+\index{Get\+Largest\+File@{Get\+Largest\+File}!Code\+Analizer\+::\+Analizer@{Code\+Analizer\+::\+Analizer}}
+\subsubsection{\texorpdfstring{Get\+Largest\+File()}{GetLargestFile()}}
+{\footnotesize\ttfamily string Code\+Analizer.\+Analizer.\+Get\+Largest\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Finds largest file in file set. 
+
+\begin{DoxyReturn}{Returns}
+String contains path to finded file or meesage saing that that file doesnt exist
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_code_analizer_1_1_analizer_ac11fc64eb4af5e8470c1c25d1dcb48e2}\label{class_code_analizer_1_1_analizer_ac11fc64eb4af5e8470c1c25d1dcb48e2}} 
+\index{Code\+Analizer\+::\+Analizer@{Code\+Analizer\+::\+Analizer}!Get\+Methods\+Count@{Get\+Methods\+Count}}
+\index{Get\+Methods\+Count@{Get\+Methods\+Count}!Code\+Analizer\+::\+Analizer@{Code\+Analizer\+::\+Analizer}}
+\subsubsection{\texorpdfstring{Get\+Methods\+Count()}{GetMethodsCount()}}
+{\footnotesize\ttfamily int Code\+Analizer.\+Analizer.\+Get\+Methods\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Counts all methods in file set. Temprorary doesnt count\+: static, override, abstract, virtual methods. 
+
+\begin{DoxyReturn}{Returns}
+Number of methods
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_code_analizer_1_1_analizer_ac3fb4201ac5fbb69662fcc983c435f41}\label{class_code_analizer_1_1_analizer_ac3fb4201ac5fbb69662fcc983c435f41}} 
+\index{Code\+Analizer\+::\+Analizer@{Code\+Analizer\+::\+Analizer}!Get\+Smallest\+File@{Get\+Smallest\+File}}
+\index{Get\+Smallest\+File@{Get\+Smallest\+File}!Code\+Analizer\+::\+Analizer@{Code\+Analizer\+::\+Analizer}}
+\subsubsection{\texorpdfstring{Get\+Smallest\+File()}{GetSmallestFile()}}
+{\footnotesize\ttfamily string Code\+Analizer.\+Analizer.\+Get\+Smallest\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Finds smallest file in file set. 
+
+\begin{DoxyReturn}{Returns}
+String contains path to finded file or meesage saing that file doesnt exist
+\end{DoxyReturn}
+
+
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Analizer.\+cs\end{DoxyCompactItemize}
+C\+:/\+Users/\+Kuba/source/repos/\+Code\+Analizer/\+Code\+Analizer/Analizer.\+cs\end{DoxyCompactItemize}

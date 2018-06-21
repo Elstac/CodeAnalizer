@@ -8,15 +8,23 @@ Class responsible for parsing data from given file.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{class_code_analizer_1_1_data_miner_a40b1994ce7b6fdc90cf40c443d7fb503}{count\+Lines}} (string path)
+\mbox{\Hypertarget{class_code_analizer_1_1_data_miner_a01f2354a892dc3a4f387c48d32a0460d}\label{class_code_analizer_1_1_data_miner_a01f2354a892dc3a4f387c48d32a0460d}} 
+{\bfseries Data\+Miner} (List$<$ string $>$\mbox{[}$\,$\mbox{]} templates, int name\+Index)
+\item 
+int \mbox{\hyperlink{class_code_analizer_1_1_data_miner_a706750ce1506885051c9879b88615bc5}{Count\+Lines}} (string path)
 \begin{DoxyCompactList}\small\item\em Counts number of lines( empty or not) in given file. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_code_analizer_1_1_data_miner_a5071efa31874229befaefa1ec5f4dfcb}{Count\+Empty}} (string path)
 \begin{DoxyCompactList}\small\item\em Counts empty lines in given file. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_code_analizer_1_1_data_miner_a57aa4bb612d960dde02b9fc9e828ac31}\label{class_code_analizer_1_1_data_miner_a57aa4bb612d960dde02b9fc9e828ac31}} 
-int {\bfseries count\+Usings} (string path)
+\mbox{\Hypertarget{class_code_analizer_1_1_data_miner_a38c01e451d8869d669077504c2103be9}\label{class_code_analizer_1_1_data_miner_a38c01e451d8869d669077504c2103be9}} 
+int {\bfseries Count\+Usings} (string path)
 \item 
-int \mbox{\hyperlink{class_code_analizer_1_1_data_miner_ad12c71980401c62499f06c7417a1e59c}{count\+Characters}} (string path)
-\begin{DoxyCompactList}\small\item\em Counts all characters in given file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+int \mbox{\hyperlink{class_code_analizer_1_1_data_miner_afdd5aa746928000245a570ee2af8ee52}{Count\+Characters}} (string path)
+\begin{DoxyCompactList}\small\item\em Counts all characters in given file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_code_analizer_1_1_data_miner_a3b6e5a7cfe4426b1dd8e52f1024fcd2f}\label{class_code_analizer_1_1_data_miner_a3b6e5a7cfe4426b1dd8e52f1024fcd2f}} 
+int {\bfseries Count\+Comments} (string path)
+\item 
+int \mbox{\hyperlink{class_code_analizer_1_1_data_miner_aa125dd16b9cd80855b93a00f3b0bae13}{Count\+Methods}} (string path)
+\begin{DoxyCompactList}\small\item\em Counts all methods matching given template \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -25,11 +33,11 @@ Class responsible for parsing data from given file.
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_code_analizer_1_1_data_miner_ad12c71980401c62499f06c7417a1e59c}\label{class_code_analizer_1_1_data_miner_ad12c71980401c62499f06c7417a1e59c}} 
-\index{Code\+Analizer\+::\+Data\+Miner@{Code\+Analizer\+::\+Data\+Miner}!count\+Characters@{count\+Characters}}
-\index{count\+Characters@{count\+Characters}!Code\+Analizer\+::\+Data\+Miner@{Code\+Analizer\+::\+Data\+Miner}}
-\subsubsection{\texorpdfstring{count\+Characters()}{countCharacters()}}
-{\footnotesize\ttfamily int Code\+Analizer.\+Data\+Miner.\+count\+Characters (\begin{DoxyParamCaption}\item[{string}]{path }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_code_analizer_1_1_data_miner_afdd5aa746928000245a570ee2af8ee52}\label{class_code_analizer_1_1_data_miner_afdd5aa746928000245a570ee2af8ee52}} 
+\index{Code\+Analizer\+::\+Data\+Miner@{Code\+Analizer\+::\+Data\+Miner}!Count\+Characters@{Count\+Characters}}
+\index{Count\+Characters@{Count\+Characters}!Code\+Analizer\+::\+Data\+Miner@{Code\+Analizer\+::\+Data\+Miner}}
+\subsubsection{\texorpdfstring{Count\+Characters()}{CountCharacters()}}
+{\footnotesize\ttfamily int Code\+Analizer.\+Data\+Miner.\+Count\+Characters (\begin{DoxyParamCaption}\item[{string}]{path }\end{DoxyParamCaption})}
 
 
 
@@ -61,11 +69,11 @@ Counts empty lines in given file.
 \begin{DoxyReturn}{Returns}
 Number of empty lines if file.
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_code_analizer_1_1_data_miner_a40b1994ce7b6fdc90cf40c443d7fb503}\label{class_code_analizer_1_1_data_miner_a40b1994ce7b6fdc90cf40c443d7fb503}} 
-\index{Code\+Analizer\+::\+Data\+Miner@{Code\+Analizer\+::\+Data\+Miner}!count\+Lines@{count\+Lines}}
-\index{count\+Lines@{count\+Lines}!Code\+Analizer\+::\+Data\+Miner@{Code\+Analizer\+::\+Data\+Miner}}
-\subsubsection{\texorpdfstring{count\+Lines()}{countLines()}}
-{\footnotesize\ttfamily int Code\+Analizer.\+Data\+Miner.\+count\+Lines (\begin{DoxyParamCaption}\item[{string}]{path }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_code_analizer_1_1_data_miner_a706750ce1506885051c9879b88615bc5}\label{class_code_analizer_1_1_data_miner_a706750ce1506885051c9879b88615bc5}} 
+\index{Code\+Analizer\+::\+Data\+Miner@{Code\+Analizer\+::\+Data\+Miner}!Count\+Lines@{Count\+Lines}}
+\index{Count\+Lines@{Count\+Lines}!Code\+Analizer\+::\+Data\+Miner@{Code\+Analizer\+::\+Data\+Miner}}
+\subsubsection{\texorpdfstring{Count\+Lines()}{CountLines()}}
+{\footnotesize\ttfamily int Code\+Analizer.\+Data\+Miner.\+Count\+Lines (\begin{DoxyParamCaption}\item[{string}]{path }\end{DoxyParamCaption})}
 
 
 
@@ -79,8 +87,26 @@ Counts number of lines( empty or not) in given file.
 \begin{DoxyReturn}{Returns}
 Number of lines in given file
 \end{DoxyReturn}
+\mbox{\Hypertarget{class_code_analizer_1_1_data_miner_aa125dd16b9cd80855b93a00f3b0bae13}\label{class_code_analizer_1_1_data_miner_aa125dd16b9cd80855b93a00f3b0bae13}} 
+\index{Code\+Analizer\+::\+Data\+Miner@{Code\+Analizer\+::\+Data\+Miner}!Count\+Methods@{Count\+Methods}}
+\index{Count\+Methods@{Count\+Methods}!Code\+Analizer\+::\+Data\+Miner@{Code\+Analizer\+::\+Data\+Miner}}
+\subsubsection{\texorpdfstring{Count\+Methods()}{CountMethods()}}
+{\footnotesize\ttfamily int Code\+Analizer.\+Data\+Miner.\+Count\+Methods (\begin{DoxyParamCaption}\item[{string}]{path }\end{DoxyParamCaption})}
+
+
+
+Counts all methods matching given template 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to file to analize\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of methods in file
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Data\+Miner.\+cs\end{DoxyCompactItemize}
+C\+:/\+Users/\+Kuba/source/repos/\+Code\+Analizer/\+Code\+Analizer/Data\+Miner.\+cs\end{DoxyCompactItemize}

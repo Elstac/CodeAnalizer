@@ -19,13 +19,14 @@ namespace CodeAnalizer
         {
             string[] tmp = Directory.GetFiles(directory);
             List<string> ret = new List<string>();
-
             foreach (var path in tmp)
             {
                 foreach (var format in allowedFormats)
                 {
                     if (path.EndsWith(format))
+                    {
                         ret.Add(path);
+                    }
                 }
             }
 

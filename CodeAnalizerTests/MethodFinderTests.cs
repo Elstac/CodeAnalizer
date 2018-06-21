@@ -83,7 +83,7 @@ namespace CodeAnalizerTests
         public void FindBadMethodTest()
         {
             bool expected = false;
-            string input = "public int gibber;";
+            string input = "if(gibber==0)";
             Assert.AreEqual(expected, finder.IsMethod(input));
         }
 

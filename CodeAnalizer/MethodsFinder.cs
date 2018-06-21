@@ -62,6 +62,7 @@ namespace CodeAnalizer
                     return false;
 
                 tmp = text.Substring(0, item.Length);
+
                 if (tmp == item)
                 {
                        return IsMethodRec(text.Substring(tmp.Length), templateIndex + 1 +(alter?1:0));
@@ -84,6 +85,12 @@ namespace CodeAnalizer
                 endIndex++;
 
             text = text.Substring(endIndex);
+        }
+        public void RemoveIndexers(ref string text)
+        {
+            if (!text.EndsWith("[]"))
+                return;
+            text = text.Substring(0, text.Length - 2);
         }
     }
 }

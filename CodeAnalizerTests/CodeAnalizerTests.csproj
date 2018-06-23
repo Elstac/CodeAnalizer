@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataMinerTest.cs" />
+    <Compile Include="EncrypterTests.cs" />
     <Compile Include="ListerTests.cs" />
     <Compile Include="MethodFinderTests.cs" />
     <Compile Include="MethodTemplate.cs" />

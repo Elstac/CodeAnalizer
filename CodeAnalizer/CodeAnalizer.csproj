@@ -46,6 +46,7 @@
     <Compile Include="Contributor.cs" />
     <Compile Include="DataMiner.cs" />
     <Compile Include="Encrypter.cs" />
+    <Compile Include="FileSaver.cs" />
     <Compile Include="LanguageSelector.cs" />
     <Compile Include="Lister.cs" />
     <Compile Include="MethodsFinder.cs" />

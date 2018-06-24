@@ -52,7 +52,7 @@ namespace CodeAnalizer
         {
             
             while (number < 0)
-                number += end+1;
+                number += end+1-beg;
             number %= end + 1;
             while (number < beg)
                 number = (number + beg) % (end+1);

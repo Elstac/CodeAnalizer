@@ -42,21 +42,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Analizer.cs" />
-    <Compile Include="Contributor.cs" />
-    <Compile Include="DataMiner.cs" />
-    <Compile Include="Encrypter.cs" />
-    <Compile Include="FileSaver.cs" />
+    <Compile Include="ProjectAnalizerModule\Classes\AData.cs" />
+    <Compile Include="ProjectAnalizerModule\Classes\Analizer.cs" />
+    <Compile Include="TrackerModule\Classes\Changes.cs" />
+    <Compile Include="ProjectAnalizerModule\Classes\Contributor.cs" />
+    <Compile Include="ProjectAnalizerModule\Classes\DataMiner.cs" />
+    <Compile Include="FileManagerModule\Classes\Encrypter.cs" />
+    <Compile Include="FileManagerModule\Classes\FileSaver.cs" />
+    <Compile Include="FileManagerModule\Interfaces\IFileSaver.cs" />
     <Compile Include="LanguageSelector.cs" />
     <Compile Include="Lister.cs" />
-    <Compile Include="MethodsFinder.cs" />
+    <Compile Include="ProjectAnalizerModule\Classes\MethodsFinder.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="ProjectAnalizer.cs" />
+    <Compile Include="ProjectAnalizerModule\Classes\ProjectAnalizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FileAnalizerModule\" />
+    <Folder Include="ProjectAnalizerModule\Interfaces\" />
+    <Folder Include="TrackerModule\Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

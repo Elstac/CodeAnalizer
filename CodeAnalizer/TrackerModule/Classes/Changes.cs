@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeAnalizer
 {
-    /// <summary>
-    /// Class responsible for saving encrypted file content to another file.
-    /// </summary>
-    public class FileSaver
+    class Changes
     {
-
     }
 }

@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using LibGit2Sharp;
 namespace CodeAnalizer
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Tracker tr = new Tracker("C:\\Users\\Kuba\\source\\repos\\CodeAnalizer");
-            Console.WriteLine(tr.CheckBranchChanges("GitTracker"));
             Console.ReadKey();
+            
         }
     }
 }

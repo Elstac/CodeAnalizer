@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileManagerModule\Classes\Tracker.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\AData.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\Analizer.cs" />
     <Compile Include="TrackerModule\Classes\Changes.cs" />

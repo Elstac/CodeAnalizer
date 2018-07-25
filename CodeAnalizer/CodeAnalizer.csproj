@@ -48,9 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileManagerModule\Classes\Tracker.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\AData.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\Analizer.cs" />
+    <Compile Include="ProjectAnalizerModule\Classes\GitChangesTracker.cs" />
+    <Compile Include="ProjectAnalizerModule\Interfaces\IGitChangeTracker.cs" />
     <Compile Include="TrackerModule\Classes\Changes.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\Contributor.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\DataMiner.cs" />
@@ -71,7 +72,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="FileAnalizerModule\" />
-    <Folder Include="ProjectAnalizerModule\Interfaces\" />
     <Folder Include="TrackerModule\Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

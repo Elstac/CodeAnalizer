@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 namespace CodeAnalizer
 { 
-    interface IGitChangeTracker
+    interface IGitChangesTracker
     {
         Tuple<int,int> ChangedLinesCount();
         Tuple<int, int> ChangedLinesCount(DateTime date);
@@ -16,6 +16,9 @@ namespace CodeAnalizer
         int CommitsCount();
         int CommitsCount(DateTime date);
         int CommitsCount(DateTime from, DateTime to);
-        
+
+        int CountAuthorCommits(string authorName);
+
+
     }
 }

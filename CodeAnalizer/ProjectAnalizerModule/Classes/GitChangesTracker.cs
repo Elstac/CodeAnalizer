@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeAnalizer
 {
-    class GitChangesTracker : IGitChangeTracker
+    public class GitChangesTracker : IGitChangesTracker
     {
         public Tuple<int, int> ChangedLinesCount()
         {

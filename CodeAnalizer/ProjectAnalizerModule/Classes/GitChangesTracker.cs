@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LibGit2Sharp;
-using LibGit2Sharp;
+using System.IO;
 namespace CodeAnalizer
 {
     public class GitChangesTracker : IGitChangesTracker
@@ -12,6 +12,8 @@ namespace CodeAnalizer
         private List<Commit> commits;
         public GitChangesTracker(string pathToRepo)
         {
+            if (!Directory.Exists(pathToRepo + "/.git"))
+                throw new RepositoryNotFoundException("There is no repo");
             commits = new List<Commit>();
             Repository repo = new Repository(pathToRepo);
             foreach (var branch in repo.Branches)

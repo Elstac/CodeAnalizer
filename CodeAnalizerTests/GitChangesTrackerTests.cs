@@ -13,6 +13,20 @@ namespace CodeAnalizerTests
     {
         private string path = "c:/users/kuba/source/repos/codeanalizer/codeanalizertests/testfolder";
         GitChangesTracker GCT= new GitChangesTracker("c:/users/kuba/source/repos/codeanalizer/codeanalizertests/testfolder");
+
+        [Test]
+        public void BadLoadTest()
+        {
+            try
+            {
+                new GitChangesTracker("gej");
+            }
+            catch (RepositoryNotFoundException e)
+            {
+                Assert.Pass();
+            }
+            Assert.Fail("Method does not throw RepositoryNotFoundException when loading not exsisting repository");
+        }
         [Test]
         public void AddedLinesDailyTest()
         {

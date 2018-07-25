@@ -19,6 +19,8 @@ namespace CodeAnalizer
 
         int CountAuthorCommits(string authorName);
 
-
+        List<string> GetChanges();
+        List<string> GetChanges(DateTime date);
+        List<string> GetChanges(DateTime from, DateTime to);
     }
 }

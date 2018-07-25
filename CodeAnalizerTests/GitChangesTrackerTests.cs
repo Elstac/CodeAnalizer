@@ -11,8 +11,8 @@ namespace CodeAnalizerTests
     [TestFixture]
     class GitChangesTrackerTests
     {
-        private string path = "C\\users\\kuba\\source\\repos\\codeanalizer\\codeanalizertests\\testfolder\\testfile.txt";
-        GitChangesTracker GCT = new GitChangesTracker();
+        private string path = "c:/users/kuba/source/repos/codeanalizer/codeanalizertests/testfolder";
+        GitChangesTracker GCT= new GitChangesTracker("c:/users/kuba/source/repos/codeanalizer/codeanalizertests/testfolder");
         [Test]
         public void AddedLinesDailyTest()
         {
@@ -38,10 +38,36 @@ namespace CodeAnalizerTests
             Assert.AreEqual(expected, output);
         }
         [Test]
-        public void CorrectCommitCount()
+        public void CommitCountDailyTest()
+        {
+            int expected = 2;
+            Assert.AreEqual(expected, GCT.CommitsCount(new DateTime(2018,7,24)));
+        }
+        [Test]
+        public void CommitCountRangeTest()
+        {
+            int expected = 2;
+            Assert.AreEqual(expected, GCT.CommitsCount(new DateTime(2018, 7, 25), new DateTime(2020, 7, 26)));
+        }
+
+        [Test]
+        public void CountAuthorTest()
         {
             int expected = 4;
-            Assert.AreEqual(expected, GCT.CommitsCount());
+            Assert.AreEqual(expected, GCT.CountAuthorCommits("Jakub < 1elstac1@gmail.com >"));
+        }
+
+        [Test]
+        public void GetChangesDailyTest()
+        {
+            List<string> expected = new List<string>
+            {
+                "+TwojaStaraGej",
+                "+Kurwa mac jebac psy kierwa",
+                "+Nie ufaj kolegom zaufaj policjantom"
+            };
+
+            Assert.AreEqual(expected, GCT.GetChanges());
         }
     }
 }

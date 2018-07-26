@@ -21,7 +21,12 @@ namespace CodeAnalizer
         }
         public Tuple<int, int> ChangedLinesCount()
         {
-            throw new NotImplementedException();
+            Tuple<int, int> ret = new Tuple<int, int>(0,0);
+            foreach (var commit in commits)
+            {
+
+            }
+            return ret;
         }
 
         public Tuple<int, int> ChangedLinesCount(DateTime date)

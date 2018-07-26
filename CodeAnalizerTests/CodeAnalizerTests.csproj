@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="DataMinerTest.cs" />
     <Compile Include="EncrypterTests.cs" />
+    <Compile Include="GitBranchCollectorTests.cs" />
     <Compile Include="GitChangesTrackerTests.cs" />
     <Compile Include="ListerTests.cs" />
     <Compile Include="MethodFinderTests.cs" />

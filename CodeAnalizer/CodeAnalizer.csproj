@@ -50,8 +50,10 @@
   <ItemGroup>
     <Compile Include="ProjectAnalizerModule\Classes\AData.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\Analizer.cs" />
+    <Compile Include="ProjectAnalizerModule\Classes\BranchCollector.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\GitChangesTracker.cs" />
     <Compile Include="ProjectAnalizerModule\Exceptions\RepositoryNotFoundException.cs" />
+    <Compile Include="ProjectAnalizerModule\Interfaces\IGitBranchCollector.cs" />
     <Compile Include="ProjectAnalizerModule\Interfaces\IGitChangeTracker.cs" />
     <Compile Include="TrackerModule\Classes\Changes.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\Contributor.cs" />

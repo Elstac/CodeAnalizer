@@ -14,9 +14,11 @@ namespace CodeAnalizer
     public class BranchCollector : IGitBranchCollector
     {
         Branch branch;
-        public BranchCollector(string repoPath, string branchName)
+        Diff diff;
+        public BranchCollector(string repoName, string branchName)
         {
-            Repository repo = new Repository(repoPath);
+            Repository repo = new Repository(repoName);
+            diff = repo.Diff;
             branch = repo.Branches[branchName];
         }
         public List<string> AuthorsLines(string authorName)
@@ -28,10 +30,35 @@ namespace CodeAnalizer
         {
             throw new NotImplementedException();
         }
-
+        /// <summary>
+        /// Method counts added and deleted lines in all changes in branch which was commited in given time range.
+        /// Nothing special
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <returns>Tuple contains: Item1- added lines, Item2- deleted lines</returns>
         public Tuple<int, int> CountChangedLines(DateTime from, DateTime to)
         {
-            throw new NotImplementedException();
+            int added = 0, deleted = 0;
+            Patch tmp;
+            Commit tmpCom=null;
+            DateTime time;
+            foreach (var commit in branch.Commits)
+            {
+                if (tmpCom == null) {
+                    tmpCom = commit;
+                    break;
+                }
+                time = commit.Author.When.DateTime;
+                if (time < from || time > to)
+                    break;
+                tmp = diff.Compare<Patch>(commit.Tree, tmpCom.Tree);
+                added += tmp.LinesAdded;
+                deleted += tmp.LinesDeleted;
+                tmpCom = commit;
+            }
+
+            return new Tuple<int, int>(added,deleted);
         }
 
         public Tuple<int, int> CountChangedLines()

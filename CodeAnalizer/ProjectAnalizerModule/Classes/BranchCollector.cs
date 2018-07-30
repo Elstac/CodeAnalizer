@@ -14,12 +14,14 @@ namespace CodeAnalizer
     public class BranchCollector : IGitBranchCollector
     {
         Branch branch;
+        List<Commit> commits;
         Diff diff;
         public BranchCollector(string repoName, string branchName)
         {
             Repository repo = new Repository(repoName);
             diff = repo.Diff;
             branch = repo.Branches[branchName];
+            commits = branch.Commits.ToList();
         }
         public List<string> AuthorsLines(string authorName)
         {
@@ -43,15 +45,18 @@ namespace CodeAnalizer
             Patch tmp;
             Commit tmpCom=null;
             DateTime time;
-            foreach (var commit in branch.Commits)
+            foreach (var commit in commits)
             {
                 if (tmpCom == null) {
                     tmpCom = commit;
-                    break;
+                    continue;
                 }
-                time = commit.Author.When.DateTime;
-                if (time < from || time > to)
-                    break;
+                time = tmpCom.Author.When.DateTime.Date;
+                if (time.Date < from.Date || time.Date > to.Date)
+                {
+                    tmpCom = commit;
+                    continue;
+                }
                 tmp = diff.Compare<Patch>(commit.Tree, tmpCom.Tree);
                 added += tmp.LinesAdded;
                 deleted += tmp.LinesDeleted;

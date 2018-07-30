@@ -12,8 +12,13 @@ namespace CodeAnalizerTests
     class GitBranchCollectorTests
     {
         private string path = "c:/users/kuba/source/repos/codeanalizer/codeanalizertests/testfolder";
-        BranchCollector BC= new BranchCollector("c:/users/kuba/source/repos/codeanalizer/codeanalizertests/testfolder","master");
+        BranchCollector BC;
 
+        [SetUp]
+        public void SetUp()
+        {
+            BC = new BranchCollector("c:/users/kuba/source/repos/codeanalizer/codeanalizertests/testfolder", "master");
+        }
         [Test]
         public void BadLoadTest()
         {
@@ -28,10 +33,10 @@ namespace CodeAnalizerTests
             Assert.Fail("Method does not throw RepositoryNotFoundException when loading not exsisting repository");
         }
         [Test]
-        public void AddedLinesDailyTest()
+        public void ChangedLinesDailyTest()
         {
-            int expected = 4;
-            int output = BC.CountChangedLines(new DateTime(2018, 6, 24), new DateTime(2018, 6, 24)).Item1;
+            Tuple<int,int> expected = new Tuple<int, int>(3,1);
+            Tuple<int, int> output = BC.CountChangedLines(new DateTime(2018, 7, 24), new DateTime(2018, 7, 24));
 
             Assert.AreEqual(expected, output);
         }
@@ -39,7 +44,7 @@ namespace CodeAnalizerTests
         public void AddedLinesBracketTest()
         {
             int expected = 3;
-            int output = BC.CountChangedLines(new DateTime(2018, 6, 25), new DateTime(2020, 6, 26)).Item1;
+            int output = BC.CountChangedLines(new DateTime(2018, 7, 25), new DateTime(2020, 7, 26)).Item1;
 
             Assert.AreEqual(expected, output);
         }

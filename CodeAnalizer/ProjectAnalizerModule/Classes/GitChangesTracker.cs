@@ -26,12 +26,15 @@ namespace CodeAnalizer
         }
         public Tuple<int, int> ChangedLinesCount()
         {
-            Tuple<int, int> ret = new Tuple<int, int>(0,0);
-            foreach (var commit in commits)
+            int added = 0, deleted = 0;
+            Tuple<int, int> tmp;
+            foreach (var bc in branches)
             {
-
+                tmp = bc.CountChangedLines();
+                added += tmp.Item1;
+                deleted += tmp.Item2;
             }
-            return ret;
+            return new Tuple<int, int>(added, deleted) ;
         }
 
         public Tuple<int, int> ChangedLinesCount(DateTime date)

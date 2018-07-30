@@ -73,7 +73,7 @@ namespace CodeAnalizerTests
         public void CountAuthorTest()
         {
             int expected = 4;
-            Assert.AreEqual(expected, BC.CountAuthorsCommits("Jakub < 1elstac1@gmail.com >"));
+            Assert.AreEqual(expected, BC.CountAuthorsCommits("Jakub <1elstac1@gmail.com>"));
         }
         
     }

@@ -34,7 +34,13 @@ namespace CodeAnalizer
 
         public int CountAuthorsCommits(string authorName)
         {
-            throw new NotImplementedException();
+            int ret = 0;
+
+            foreach (var commit in commits)
+                if (commit.Author.ToString() == authorName)
+                    ret++;
+
+            return ret;
         }
         /// <summary>
         /// Method counts added and deleted lines in all changes in branch which was commited in given time range.

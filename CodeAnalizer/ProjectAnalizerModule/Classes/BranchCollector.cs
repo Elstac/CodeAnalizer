@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using CodeAnalizer;
 using LibGit2Sharp;
+using System.IO;
+
 namespace CodeAnalizer
 {
     /// <summary>
@@ -18,6 +20,8 @@ namespace CodeAnalizer
         Diff diff;
         public BranchCollector(string repoName, string branchName)
         {
+            if (!Directory.Exists(repoName))
+                throw new RepositoryNotFoundException("There is no repo in given path");
             Repository repo = new Repository(repoName);
             diff = repo.Diff;
             branch = repo.Branches[branchName];

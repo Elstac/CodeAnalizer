@@ -52,7 +52,7 @@ namespace CodeAnalizer
                     continue;
                 }
                 time = tmpCom.Author.When.DateTime.Date;
-                if (time.Date < from.Date || time.Date > to.Date)
+                if (CheckCommitDate(tmpCom, from,to))
                 {
                     tmpCom = commit;
                     continue;
@@ -77,12 +77,24 @@ namespace CodeAnalizer
 
         public int CountCommits(DateTime from, DateTime to)
         {
-            throw new NotImplementedException();
+            int ret = 0;
+            
+            foreach (var commit in commits)
+                if (CheckCommitDate(commit, from, to))
+                    ret++;
+
+            return ret;
         }
 
         public int CountCommits()
         {
-            throw new NotImplementedException();
+            return commits.Count;
+        }
+
+        private bool CheckCommitDate(Commit commit, DateTime from,DateTime to)
+        {
+            DateTime time= commit.Author.When.DateTime.Date;
+            return !(time.Date < from.Date || time.Date > to.Date);
         }
     }
 }

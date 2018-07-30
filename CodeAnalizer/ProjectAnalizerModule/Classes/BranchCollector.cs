@@ -21,7 +21,7 @@ namespace CodeAnalizer
         public BranchCollector(string repoName, string branchName)
         {
             if (!Directory.Exists(repoName))
-                throw new RepositoryNotFoundException("There is no repo in given path");
+                throw new RepositoryNotFoundException("There is no repo in given directory");
             Repository repo = new Repository(repoName);
             diff = repo.Diff;
             branch = repo.Branches[branchName];

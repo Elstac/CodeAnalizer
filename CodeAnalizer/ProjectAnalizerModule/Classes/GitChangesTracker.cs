@@ -10,14 +10,19 @@ namespace CodeAnalizer
     public class GitChangesTracker : IGitChangesTracker
     {
         private List<Commit> commits;
+        private List<BranchCollector> branches;
         public GitChangesTracker(string pathToRepo)
         {
             if (!Directory.Exists(pathToRepo + "/.git"))
                 throw new RepositoryNotFoundException("There is no repo");
-            commits = new List<Commit>();
+
+            branches = new List<BranchCollector>();
             Repository repo = new Repository(pathToRepo);
+
+            commits = repo.Commits.ToList();
+
             foreach (var branch in repo.Branches)
-                commits.AddRange(branch.Commits.ToList());
+                branches.Add(new BranchCollector(pathToRepo, branch.FriendlyName));
         }
         public Tuple<int, int> ChangedLinesCount()
         {

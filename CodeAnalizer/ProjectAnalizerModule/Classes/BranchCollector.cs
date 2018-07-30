@@ -52,7 +52,7 @@ namespace CodeAnalizer
                     continue;
                 }
                 time = tmpCom.Author.When.DateTime.Date;
-                if (CheckCommitDate(tmpCom, from,to))
+                if (!CheckCommitDate(tmpCom, from,to))
                 {
                     tmpCom = commit;
                     continue;

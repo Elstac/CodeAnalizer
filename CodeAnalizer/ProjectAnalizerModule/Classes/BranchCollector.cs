@@ -68,7 +68,11 @@ namespace CodeAnalizer
 
         public Tuple<int, int> CountChangedLines()
         {
-            throw new NotImplementedException();
+            DateTime first, last;
+            first = commits.Last().Author.When.Date;
+            last = commits[0].Author.When.Date;
+
+            return CountChangedLines(first, last);
         }
 
         public int CountCommits(DateTime from, DateTime to)

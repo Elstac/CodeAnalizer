@@ -28,7 +28,7 @@ namespace CodeAnalizer
             throw new NotImplementedException();
         }
 
-        public int CountAuthorCommits(string authorName)
+        public int CountAuthorsCommits(string authorName)
         {
             throw new NotImplementedException();
         }

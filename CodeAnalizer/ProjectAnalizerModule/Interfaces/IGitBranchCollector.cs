@@ -14,7 +14,7 @@ namespace CodeAnalizer
         int CountCommits(DateTime from, DateTime to);
         int CountCommits();
 
-        int CountAuthorCommits(string authorName);
+        int CountAuthorsCommits(string authorName);
         List<string> AuthorsLines(string authorName);
     }
 }

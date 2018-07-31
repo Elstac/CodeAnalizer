@@ -11,6 +11,10 @@ namespace CodeAnalizer
     {
         static void Main(string[] args)
         {
+            Repository repo = new Repository("c:/users/kuba/source/repos/codeanalizer/codeanalizertests/testfolder");
+
+            List<Commit> l= repo.Commits.ToList()[0].Parents.ToList();
+            Console.WriteLine(l);
             Console.ReadKey();
             
         }

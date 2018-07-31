@@ -46,7 +46,7 @@ namespace CodeAnalizerTests
         [Test]
         public void AllAddedLinesTest()
         {
-            int expected = 6;
+            int expected = 9;
             int output = GCT.ChangedLinesCount().Item1;
 
             Assert.AreEqual(expected, output);
@@ -60,7 +60,7 @@ namespace CodeAnalizerTests
         [Test]
         public void CommitCountRangeTest()
         {
-            int expected = 2;
+            int expected = 4;
             Assert.AreEqual(expected, GCT.CommitsCount(new DateTime(2018, 7, 25), new DateTime(2020, 7, 26)));
         }
 

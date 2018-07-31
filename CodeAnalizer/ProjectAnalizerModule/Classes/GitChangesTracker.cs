@@ -11,6 +11,7 @@ namespace CodeAnalizer
     {
         private List<Commit> commits;
         private List<BranchCollector> branches;
+        private Diff diff;
         public GitChangesTracker(string pathToRepo)
         {
             if (!Directory.Exists(pathToRepo + "/.git"))
@@ -20,6 +21,7 @@ namespace CodeAnalizer
             Repository repo = new Repository(pathToRepo);
 
             commits = repo.Commits.ToList();
+            diff = repo.Diff;
 
             foreach (var branch in repo.Branches)
                 branches.Add(new BranchCollector(pathToRepo, branch.FriendlyName));
@@ -27,12 +29,15 @@ namespace CodeAnalizer
         public Tuple<int, int> ChangedLinesCount()
         {
             int added = 0, deleted = 0;
-            Tuple<int, int> tmp;
-            foreach (var bc in branches)
+            Patch tmp;
+            foreach (var commit in commits)
             {
-                tmp = bc.CountChangedLines();
-                added += tmp.Item1;
-                deleted += tmp.Item2;
+                if (commit.Parents.ToList().Count > 1|| commit.Parents.ToList().Count<1)
+                    continue;
+
+                tmp = diff.Compare<Patch>(commit.Parents.First().Tree, commit.Tree);
+                added += tmp.LinesAdded;
+                deleted += tmp.LinesDeleted;
             }
             return new Tuple<int, int>(added, deleted) ;
         }

@@ -107,7 +107,12 @@ namespace CodeAnalizer
 
         public int CountAuthorCommits(string authorName)
         {
-            throw new NotImplementedException();
+            int ret = 0;
+            foreach (var commit in commits)
+                if (commit.Author.ToString() == authorName)
+                    ret++;
+
+            return ret;
         }
 
         public List<string> GetChanges()

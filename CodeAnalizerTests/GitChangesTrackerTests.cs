@@ -67,8 +67,8 @@ namespace CodeAnalizerTests
         [Test]
         public void CountAuthorTest()
         {
-            int expected = 4;
-            Assert.AreEqual(expected, GCT.CountAuthorCommits("Jakub < 1elstac1@gmail.com >"));
+            int expected = 6;
+            Assert.AreEqual(expected, GCT.CountAuthorCommits("Jakub <1elstac1@gmail.com>"));
         }
 
         [Test]

@@ -14,7 +14,7 @@ namespace CodeAnalizer
         MultipleEnd
     }
     /// <summary>
-    /// Class responsible for parsing data from given file.
+    /// Class responsible for gathering informations about file.
     /// </summary>
     public class DataMiner
     {

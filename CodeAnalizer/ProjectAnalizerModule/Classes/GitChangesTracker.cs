@@ -7,11 +7,19 @@ using LibGit2Sharp;
 using System.IO;
 namespace CodeAnalizer
 {
+    /// <summary>
+    /// Class responsible for gathering data from whole repo( n# of commits, lines chnged in given time range,
+    /// Known issues: changes in first commit isnt count to n# of changed lines
+    /// </summary>
     public class GitChangesTracker : IGitChangesTracker
     {
         private List<Commit> commits;
         private List<BranchCollector> branches;
         private Diff diff;
+        /// <summary>
+        /// Initialize class, throws _RepositoryNotFoundException_ when was given wrong path, NS
+        /// </summary>
+        /// <param name="pathToRepo"></param>
         public GitChangesTracker(string pathToRepo)
         {
             if (!Directory.Exists(pathToRepo + "/.git"))
@@ -29,29 +37,51 @@ namespace CodeAnalizer
         public Tuple<int, int> ChangedLinesCount()
         {
             int added = 0, deleted = 0;
-            Patch tmp;
             foreach (var commit in commits)
-            {
-                if (commit.Parents.ToList().Count > 1|| commit.Parents.ToList().Count<1)
-                    continue;
+                AddChangedLines(ref added, ref deleted, commit);
 
-                tmp = diff.Compare<Patch>(commit.Parents.First().Tree, commit.Tree);
-                added += tmp.LinesAdded;
-                deleted += tmp.LinesDeleted;
-            }
             return new Tuple<int, int>(added, deleted) ;
         }
 
         public Tuple<int, int> ChangedLinesCount(DateTime date)
         {
-            throw new NotImplementedException();
+            int added = 0, deleted = 0;
+            foreach (var commit in commits)
+            {
+                if (commit.Author.When.Date != date.Date)
+                    continue;
+                AddChangedLines(ref added, ref deleted, commit);
+            }
+
+            return new Tuple<int, int>(added, deleted);
         }
 
         public Tuple<int, int> ChangedLinesCount(DateTime from, DateTime to)
         {
-            throw new NotImplementedException();
+            int added = 0, deleted = 0;
+            from = from.Date; to = to.Date;
+
+            foreach (var commit in commits)
+            {
+                DateTime time = commit.Author.When.Date;
+                if ( time<from||time>to)
+                    continue;
+
+                AddChangedLines(ref added, ref deleted, commit);
+            }
+
+            return new Tuple<int, int>(added, deleted);
         }
 
+        private void AddChangedLines(ref int add, ref int del,Commit commit)
+        {
+            if (commit.Parents.ToList().Count > 1 || commit.Parents.ToList().Count < 1)
+                return;
+
+            Patch tmp = diff.Compare<Patch>(commit.Parents.First().Tree, commit.Tree);
+            add += tmp.LinesAdded;
+            del += tmp.LinesDeleted;
+        }
         public int CommitsCount()
         {
             return commits.Count;

@@ -30,16 +30,16 @@ namespace CodeAnalizerTests
         [Test]
         public void AddedLinesDailyTest()
         {
-            int expected = 4;
-            int output = GCT.ChangedLinesCount(new DateTime(2018, 6, 24)).Item1;
+            int expected = 3;
+            int output = GCT.ChangedLinesCount(new DateTime(2018, 7, 24)).Item1;
 
             Assert.AreEqual(expected, output);
         }
         [Test]
-        public void AddedLinesBracketTest()
+        public void AddedLinesRangeTest()
         {
-            int expected = 3;
-            int output = GCT.ChangedLinesCount(new DateTime(2018, 6, 25), new DateTime(2020, 6, 26)).Item1;
+            int expected = 5;
+            int output = GCT.ChangedLinesCount(new DateTime(2018, 7, 25), new DateTime(2020, 6, 26)).Item1;
 
             Assert.AreEqual(expected, output);
         }

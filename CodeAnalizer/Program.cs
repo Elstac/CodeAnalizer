@@ -11,10 +11,14 @@ namespace CodeAnalizer
     {
         static void Main(string[] args)
         {
-            Repository repo = new Repository("c:/users/kuba/source/repos/codeanalizer/codeanalizertests/testfolder");
+            string path = Directory.GetCurrentDirectory() + "/../../..";
 
-            List<Commit> l= repo.Commits.ToList()[0].Parents.ToList();
-            Console.WriteLine(l);
+            GitChangesTracker GCT = new GitChangesTracker(path);
+            string msg = "Todays commits: "+ GCT.CommitsCount(DateTime.Now) + "\n" +
+                "This months commits: " + GCT.CommitsCount(new DateTime(2018, 7, 1), new DateTime(2018, 7, 31)) + "\n" +
+                "All commits: " + GCT.CommitsCount();
+            Console.WriteLine(msg);
+
             Console.ReadKey();
             
         }

@@ -91,7 +91,7 @@ namespace CodeAnalizer
         {
             int ret = 0;
             foreach (var commit in commits)
-                if (commit.Author.When.Date == date)
+                if (commit.Author.When.Date == date.Date)
                     ret++;
             return ret;
         }
@@ -117,7 +117,12 @@ namespace CodeAnalizer
 
         public List<string> GetChanges()
         {
-            throw new NotImplementedException();
+            List<string> ret = new List<string>();
+
+            foreach (var commit in commits)
+                AddChanges(ref ret, commit);
+
+            return ret;
         }
 
         public List<string> GetChanges(DateTime date)
@@ -129,7 +134,16 @@ namespace CodeAnalizer
         {
             throw new NotImplementedException();
         }
+        
+        private void AddChanges(ref List<string>list, Commit commit)
+        {
+            if (commit.Parents.ToList().Count > 1 || commit.Parents.ToList().Count < 1)
+                return;
 
+            Patch tmp = diff.Compare<Patch>(commit.Parents.First().Tree, commit.Tree);
+            ret.Add(commit.Id.ToString() + " " + commit.Author.ToString());
+            ret.Add(tmp.Content);
+        }
         public List<string> MessagesTexts()
         {
             throw new NotImplementedException();

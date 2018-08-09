@@ -144,8 +144,7 @@ namespace CodeAnalizer
             ret.Add(commit.Id.ToString() + " " + commit.Author.ToString());
             ret.Add(tmp.Content);
         }
-
-
+        
         public List<string> MessagesTexts()
         {
             throw new NotImplementedException();

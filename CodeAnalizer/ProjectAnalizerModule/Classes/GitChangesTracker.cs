@@ -145,6 +145,7 @@ namespace CodeAnalizer
             ret.Add(tmp.Content);
         }
 
+
         public List<string> MessagesTexts()
         {
             throw new NotImplementedException();

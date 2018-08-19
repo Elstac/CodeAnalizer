@@ -141,8 +141,8 @@ namespace CodeAnalizer
                 return;
 
             Patch tmp = diff.Compare<Patch>(commit.Parents.First().Tree, commit.Tree);
-            ret.Add(commit.Id.ToString() + " " + commit.Author.ToString());
-            ret.Add(tmp.Content);
+            list.Add(commit.Id.ToString() + " " + commit.Author.ToString());
+            list.Add(tmp.Content);
         }
         
         public List<string> MessagesTexts()

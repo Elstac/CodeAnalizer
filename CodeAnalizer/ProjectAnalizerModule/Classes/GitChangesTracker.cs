@@ -127,12 +127,28 @@ namespace CodeAnalizer
 
         public List<string> GetChanges(DateTime date)
         {
-            throw new NotImplementedException();
+            List<string> ret = new List<string>();
+
+            foreach (var commit in commits)
+                if(commit.Author.When.Date==date.Date)
+                    AddChanges(ref ret, commit);
+
+            return ret;
         }
 
         public List<string> GetChanges(DateTime from, DateTime to)
         {
-            throw new NotImplementedException();
+            List<string> ret = new List<string>();
+
+            foreach (var commit in commits)
+            {
+                DateTime time = commit.Author.When.Date;
+                if (time < from.Date || time > to.Date)
+                    continue;
+                AddChanges(ref ret, commit);
+            }
+
+            return ret;
         }
         
         private void AddChanges(ref List<string>list, Commit commit)
@@ -142,9 +158,27 @@ namespace CodeAnalizer
 
             Patch tmp = diff.Compare<Patch>(commit.Parents.First().Tree, commit.Tree);
             list.Add(commit.Id.ToString() + " " + commit.Author.ToString());
-            list.Add(tmp.Content);
+            list.Add(ParseContent( tmp.Content));
         }
-        
+
+        private string ParseContent(string content)
+        {
+            string ret = "";
+
+            List<string> tmp= StringEditor.GetLines(content);
+
+            foreach (var item in tmp)
+            {
+                string text = StringEditor.GetRawText(item);
+                if (text.Length == 0)
+                    continue;
+                if (text.First() == '+' || text.First() == '-')
+                    if (text.Length==1||(text[1] != '+' && text[1] != '-'))
+                        ret += text+"\n";
+            }
+            return ret;
+        }
+
         public List<string> MessagesTexts()
         {
             throw new NotImplementedException();

@@ -19,12 +19,14 @@ namespace CodeAnalizer
     {
         private List<Analizer> analizers;
         private List<Contributor> contributors;
-        
-        public ProjectAnalizer(Language lan)
+        GitChangesTracker GCT;
+        public ProjectAnalizer(Language lan, string pathToRepo)
         {
             analizers = new List<Analizer>();
             contributors = new List<Contributor>();
             LanguageSelector.Language = lan;
+
+            GCT = new GitChangesTracker(pathToRepo);
         }
         /// <summary>
         /// Adds contributorless analizer for grup of files
@@ -159,5 +161,6 @@ namespace CodeAnalizer
             return ret.ToString();
         }
 
+       
     }
 }

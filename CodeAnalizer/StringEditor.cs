@@ -36,5 +36,22 @@ namespace CodeAnalizer
 
             return text.Substring(0, index);
         }
+
+        public static List<string> GetLines(string text)
+        {
+            List<string> ret = new List<string>();
+            int posB=0,posE;
+            string tmp;
+            while(text.Length >0)
+            {
+                posE = text.IndexOf('\n', posB);
+                if (posE == -1)
+                    break;
+                tmp = text.Substring(posB, posE-posB);
+                ret.Add(tmp);
+                posB = posE+1;
+            }
+            return ret;
+        }
     }
 }

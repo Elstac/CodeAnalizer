@@ -14,10 +14,24 @@ namespace CodeAnalizer
             string path = Directory.GetCurrentDirectory() + "/../../..";
 
             GitChangesTracker GCT = new GitChangesTracker(path);
-            string msg = "Todays commits: "+ GCT.CommitsCount(DateTime.Now) + "\n" +
-                "This months commits: " + GCT.CommitsCount(new DateTime(2018, 7, 1), new DateTime(2018, 7, 31)) + "\n" +
+            string msg = "Todays commits: " + GCT.GetChanges(DateTime.Now) + "\n" +
+                "This months commits: " + GCT.GetChanges(new DateTime(2018, 7, 1), new DateTime(2018, 7, 31)) + "\n" +
                 "All commits: " + GCT.CommitsCount();
+            msg = "Today: \n";
+            List<string> list = GCT.GetChanges(DateTime.Now);
+            foreach (var item in list)
+            {
+                msg += item + "\n";
+            }
+
             Console.WriteLine(msg);
+
+            //List<string> test = StringEditor.GetLines("dupa\ndupa\nsiur\n");
+
+            //foreach (var item in test)
+            //{
+            //    Console.WriteLine( item);
+            //}
 
             Console.ReadKey();
             

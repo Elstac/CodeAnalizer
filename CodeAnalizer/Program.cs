@@ -18,12 +18,12 @@ namespace CodeAnalizer
                 "This months commits: " + GCT.GetChanges(new DateTime(2018, 7, 1), new DateTime(2018, 7, 31)) + "\n" +
                 "All commits: " + GCT.CommitsCount();
             msg = "Today: \n";
-            List<string> list = GCT.MessagesTexts(DateTime.Today);
-            foreach (var item in list)
-            {
-                msg += item + "\n";
-            }
-
+            //List<string> list = GCT.GetChanges(DateTime.Today);
+            //foreach (var item in list)
+            //{
+            //    msg += item + "\n";
+            //}
+            msg +="+ "+ GCT.ChangedLinesCount().Item2+"\n- "+ GCT.ChangedLinesCount().Item1;
             Console.WriteLine(msg);
 
             //List<string> test = StringEditor.GetLines("dupa\ndupa\nsiur\n");

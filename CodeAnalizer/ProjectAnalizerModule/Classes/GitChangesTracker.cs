@@ -130,6 +130,15 @@ namespace CodeAnalizer
             };
             return AddChanges(con);
         }
+
+        public List<string> GetChanges(string authorName)
+        {
+            Func<Signature, bool> con = delegate (Signature sig)
+            {
+                return (sig.Name == authorName);
+            };
+            return AddChanges(con);
+        }
         /// <summary>
         /// Method add strings containing changed lines from commit which fulfill given condition
         /// </summary>
@@ -140,10 +149,10 @@ namespace CodeAnalizer
             foreach (var commit in commits)
             {
                 if (commit.Parents.ToList().Count > 1 || commit.Parents.ToList().Count < 1)
-                    return null;
+                    continue;
 
                 if (!condiditon(commit.Author))
-                    return null;
+                    continue;
                 Patch tmp = diff.Compare<Patch>(commit.Parents.First().Tree, commit.Tree);
                 ret.Add(commit.Id.ToString() + " " + commit.Author.ToString());
                 ret.Add(ParseContent(tmp.Content));
@@ -195,6 +204,14 @@ namespace CodeAnalizer
             };
             return GetMessages(condition);
         }
+        public List<string> MessagesTexts(string authorName)
+        {
+            Func<Signature, bool> condition = delegate (Signature s)
+            {
+                return (s.Name == authorName);
+            };
+            return GetMessages(condition);
+        }
 
         private List<string> GetMessages(Func<Signature,bool> condition)
         {
@@ -206,10 +223,6 @@ namespace CodeAnalizer
             }
             return ret;
         }
-
-        public List<string> GetChanges(string author)
-        {
-            throw new NotImplementedException();
-        }
+    
     }
 }

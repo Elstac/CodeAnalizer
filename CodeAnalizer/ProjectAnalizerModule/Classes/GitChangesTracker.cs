@@ -190,12 +190,20 @@ namespace CodeAnalizer
 
         public List<string> MessagesTexts(DateTime date)
         {
-            throw new NotImplementedException();
+            Func<Signature, bool> condition = delegate (Signature s)
+            {
+                return (s.When.Date == date.Date);
+            };
+            return GetMessages(condition);
         }
 
         public List<string> MessagesTexts(DateTime from, DateTime to)
         {
-            throw new NotImplementedException();
+            Func<Signature, bool> condition = delegate (Signature s)
+            {
+                return (s.When.Date < to.Date && s.When.Date > from.Date);
+            };
+            return GetMessages(condition);
         }
 
         private List<string> GetMessages(Func<Signature,bool> condition)

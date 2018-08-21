@@ -181,7 +181,7 @@ namespace CodeAnalizer
 
         public List<string> MessagesTexts()
         {
-            throw new NotImplementedException();
+
         }
 
         public List<string> MessagesTexts(DateTime date)
@@ -192,6 +192,17 @@ namespace CodeAnalizer
         public List<string> MessagesTexts(DateTime from, DateTime to)
         {
             throw new NotImplementedException();
+        }
+
+        private List<string> GetMessages(Func<Signature,bool> condition)
+        {
+            List<string> ret = new List<string>();
+            foreach (var commit in commits)
+            {
+                if(condition(commit.Author))
+                    ret.Add(commit.Id + ": " + commit.Message);
+            }
+            return ret;
         }
     }
 }

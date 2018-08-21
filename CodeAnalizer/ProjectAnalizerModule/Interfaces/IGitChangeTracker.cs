@@ -22,5 +22,6 @@ namespace CodeAnalizer
         List<string> GetChanges();
         List<string> GetChanges(DateTime date);
         List<string> GetChanges(DateTime from, DateTime to);
+        List<string> GetChanges(string author);
     }
 }

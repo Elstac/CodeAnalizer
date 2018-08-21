@@ -13,12 +13,12 @@ namespace CodeAnalizer
     {
         private string _name;
         private float _wasteParam;
-        Analizer analizer;
+        FileAnalizer analizer;
         public string Name { get => _name; }
-        public Analizer Analizer { get => analizer; }
+        public FileAnalizer Analizer { get => analizer; }
         public float WasteParam { get => _wasteParam; set => _wasteParam = value; }
 
-        public Contributor(string name, Analizer analizer)
+        public Contributor(string name, FileAnalizer analizer)
         {
             _name = name;
             this.analizer = analizer;

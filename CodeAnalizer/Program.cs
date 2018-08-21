@@ -18,7 +18,7 @@ namespace CodeAnalizer
                 "This months commits: " + GCT.GetChanges(new DateTime(2018, 7, 1), new DateTime(2018, 7, 31)) + "\n" +
                 "All commits: " + GCT.CommitsCount();
             msg = "Today: \n";
-            List<string> list = GCT.GetChanges(DateTime.Now);
+            List<string> list = GCT.MessagesTexts();
             foreach (var item in list)
             {
                 msg += item + "\n";

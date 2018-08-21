@@ -181,7 +181,11 @@ namespace CodeAnalizer
 
         public List<string> MessagesTexts()
         {
-
+            Func<Signature, bool> condition = delegate (Signature s)
+             {
+                 return true;
+             };
+            return GetMessages(condition);
         }
 
         public List<string> MessagesTexts(DateTime date)
@@ -203,6 +207,11 @@ namespace CodeAnalizer
                     ret.Add(commit.Id + ": " + commit.Message);
             }
             return ret;
+        }
+
+        public List<string> GetChanges(string author)
+        {
+            throw new NotImplementedException();
         }
     }
 }

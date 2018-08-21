@@ -117,48 +117,49 @@ namespace CodeAnalizer
 
         public List<string> GetChanges()
         {
-            List<string> ret = new List<string>();
-
-            foreach (var commit in commits)
-                AddChanges(ref ret, commit);
-
-            return ret;
+            Func<Signature, bool> con = delegate (Signature sig)
+             {
+                 return true;
+             };
+            return AddChanges(con);
         }
 
         public List<string> GetChanges(DateTime date)
         {
-            List<string> ret = new List<string>();
-
-            foreach (var commit in commits)
-                if(commit.Author.When.Date==date.Date)
-                    AddChanges(ref ret, commit);
-
-            return ret;
+            Func<Signature, bool> con = delegate (Signature sig)
+            {
+                return (sig.When.Date == date.Date);
+            };
+            return AddChanges(con);
         }
 
         public List<string> GetChanges(DateTime from, DateTime to)
         {
+            Func<Signature, bool> con = delegate (Signature sig)
+            {
+                return (sig.When.Date >= from.Date&& sig.When.Date <= to.Date);
+            };
+            return AddChanges(con);
+        }
+        /// <summary>
+        /// Method add strings containing changed lines from commit which fulfill given condition
+        /// </summary>
+        ///<param name="condiditon">Logic func represents condition</param>
+        private List<string> AddChanges(Func<Signature,bool> condiditon)
+        {
             List<string> ret = new List<string>();
-
             foreach (var commit in commits)
             {
-                DateTime time = commit.Author.When.Date;
-                if (time < from.Date || time > to.Date)
-                    continue;
-                AddChanges(ref ret, commit);
+                if (commit.Parents.ToList().Count > 1 || commit.Parents.ToList().Count < 1)
+                    return null;
+
+                if (!condiditon(commit.Author))
+                    return null;
+                Patch tmp = diff.Compare<Patch>(commit.Parents.First().Tree, commit.Tree);
+                ret.Add(commit.Id.ToString() + " " + commit.Author.ToString());
+                ret.Add(ParseContent(tmp.Content));
             }
-
             return ret;
-        }
-        
-        private void AddChanges(ref List<string>list, Commit commit)
-        {
-            if (commit.Parents.ToList().Count > 1 || commit.Parents.ToList().Count < 1)
-                return;
-
-            Patch tmp = diff.Compare<Patch>(commit.Parents.First().Tree, commit.Tree);
-            list.Add(commit.Id.ToString() + " " + commit.Author.ToString());
-            list.Add(ParseContent( tmp.Content));
         }
 
         private string ParseContent(string content)

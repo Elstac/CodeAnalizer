@@ -36,51 +36,40 @@ namespace CodeAnalizer
         }
         public Tuple<int, int> ChangedLinesCount()
         {
-            int added = 0, deleted = 0;
-            foreach (var commit in commits)
-                AddChangedLines(ref added, ref deleted, commit);
+            Func<Signature, bool> con = delegate (Signature sig) { return true; };
 
-            return new Tuple<int, int>(added, deleted) ;
+            return AddChangedLines(con);
         }
 
         public Tuple<int, int> ChangedLinesCount(DateTime date)
         {
-            int added = 0, deleted = 0;
-            foreach (var commit in commits)
-            {
-                if (commit.Author.When.Date != date.Date)
-                    continue;
-                AddChangedLines(ref added, ref deleted, commit);
-            }
+            Func<Signature, bool> con = delegate (Signature sig){ return (sig.When.Date == date.Date); };
 
-            return new Tuple<int, int>(added, deleted);
+            return AddChangedLines(con);
         }
 
         public Tuple<int, int> ChangedLinesCount(DateTime from, DateTime to)
         {
-            int added = 0, deleted = 0;
-            from = from.Date; to = to.Date;
+            Func<Signature, bool> con = delegate (Signature sig) {
+                return (sig.When.Date >= from.Date && sig.When.Date <= to.Date); };
 
-            foreach (var commit in commits)
-            {
-                DateTime time = commit.Author.When.Date;
-                if ( time<from||time>to)
-                    continue;
-
-                AddChangedLines(ref added, ref deleted, commit);
-            }
-
-            return new Tuple<int, int>(added, deleted);
+            return AddChangedLines(con);
         }
 
-        private void AddChangedLines(ref int add, ref int del,Commit commit)
+        private Tuple<int,int> AddChangedLines(Func<Signature,bool> condition)
         {
-            if (commit.Parents.ToList().Count > 1 || commit.Parents.ToList().Count < 1)
-                return;
-
-            Patch tmp = diff.Compare<Patch>(commit.Parents.First().Tree, commit.Tree);
-            add += tmp.LinesAdded;
-            del += tmp.LinesDeleted;
+            int add = 0, del = 0;
+            foreach (var commit in commits)
+            {
+                if (commit.Parents.ToList().Count > 1 || commit.Parents.ToList().Count < 1)
+                    continue;
+                if (!condition(commit.Author))
+                    continue;
+                Patch tmp = diff.Compare<Patch>(commit.Parents.First().Tree, commit.Tree);
+                add += tmp.LinesAdded;
+                del += tmp.LinesDeleted;
+            }
+            return new Tuple<int, int>(add, del);
         }
         public int CommitsCount()
         {

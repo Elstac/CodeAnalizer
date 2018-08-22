@@ -59,7 +59,7 @@ namespace CodeAnalizer
             else throw new NotImplementedException();
         }
 
-        public string[] GetFileFormats()
+        public static string[] GetFileFormats()
         {
             string[] ret = null;
             if (language == Language.Csharp)

@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4139A892-049C-4352-86F0-152273508099}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>CodeAnalizer</RootNamespace>
     <AssemblyName>CodeAnalizer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="LibGit2Sharp, Version=0.25.0.0, Culture=neutral, PublicKeyToken=7cbde695407f0333, processorArchitecture=MSIL">
       <HintPath>..\packages\LibGit2Sharp.0.25.2\lib\netstandard2.0\LibGit2Sharp.dll</HintPath>
@@ -50,9 +53,12 @@
   <ItemGroup>
     <Compile Include="ProjectAnalizerModule\Classes\AData.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\Analizer.cs" />
+    <Compile Include="ProjectAnalizerModule\Classes\FileAnalizer.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\BranchCollector.cs" />
+    <Compile Include="ProjectAnalizerModule\Classes\GitAnalizer.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\GitChangesTracker.cs" />
     <Compile Include="ProjectAnalizerModule\Exceptions\RepositoryNotFoundException.cs" />
+    <Compile Include="ProjectAnalizerModule\Interfaces\IDataSource.cs" />
     <Compile Include="ProjectAnalizerModule\Interfaces\IGitBranchCollector.cs" />
     <Compile Include="ProjectAnalizerModule\Interfaces\IGitChangeTracker.cs" />
     <Compile Include="TrackerModule\Classes\Changes.cs" />

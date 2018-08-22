@@ -16,8 +16,7 @@ namespace CodeAnalizer
         int CommitsCount();
         int CommitsCount(DateTime date);
         int CommitsCount(DateTime from, DateTime to);
-
-        int CountAuthorCommits(string authorName);
+        int CommitsCount(string authorName);
 
         List<string> GetChanges();
         List<string> GetChanges(DateTime date);

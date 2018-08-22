@@ -34,6 +34,9 @@ namespace CodeAnalizer
             foreach (var branch in repo.Branches)
                 branches.Add(new BranchCollector(pathToRepo, branch.FriendlyName));
         }
+
+        //===========================ChangedLines========================
+
         public Tuple<int, int> ChangedLinesCount()
         {
             Func<Signature, bool> con = delegate (Signature sig) { return true; };
@@ -56,6 +59,24 @@ namespace CodeAnalizer
             return AddChangedLines(con);
         }
 
+        public Tuple<int, int> ChangedLinesCount(string authorName)
+        {
+            Func<Signature, bool> con = delegate (Signature sig) {
+                return (authorName == sig.Name);
+            };
+
+            return AddChangedLines(con);
+        }
+
+        public Tuple<int, int> ChangedLinesCount(string authorName,DateTime from, DateTime to)
+        {
+            Func<Signature, bool> con = delegate (Signature sig) {
+                return (sig.When.Date >= from.Date && sig.When.Date <= to.Date && authorName== sig.Name);
+            };
+
+            return AddChangedLines(con);
+        }
+
         private Tuple<int,int> AddChangedLines(Func<Signature,bool> condition)
         {
             int add = 0, del = 0;
@@ -71,6 +92,9 @@ namespace CodeAnalizer
             }
             return new Tuple<int, int>(add, del);
         }
+
+        //==============ComitsCount======================
+
         public int CommitsCount()
         {
             return commits.Count;
@@ -94,7 +118,7 @@ namespace CodeAnalizer
             return ret;
         }
 
-        public int CountAuthorCommits(string authorName)
+        public int CommitsCount(string authorName)
         {
             int ret = 0;
             foreach (var commit in commits)
@@ -103,6 +127,8 @@ namespace CodeAnalizer
 
             return ret;
         }
+
+        //====================GETCHANGES========================
 
         public List<string> GetChanges()
         {
@@ -136,6 +162,15 @@ namespace CodeAnalizer
             Func<Signature, bool> con = delegate (Signature sig)
             {
                 return (sig.Name == authorName);
+            };
+            return AddChanges(con);
+        }
+
+        public List<string> GetChanges(string authorName,DateTime from, DateTime to)
+        {
+            Func<Signature, bool> con = delegate (Signature sig)
+            {
+                return (sig.When.Date >= from.Date && sig.When.Date <= to.Date && sig.Name == authorName);
             };
             return AddChanges(con);
         }
@@ -178,6 +213,8 @@ namespace CodeAnalizer
             return ret;
         }
 
+        //=======================MessageTexts===========================
+
         public List<string> MessagesTexts()
         {
             Func<Signature, bool> condition = delegate (Signature s)
@@ -209,6 +246,15 @@ namespace CodeAnalizer
             Func<Signature, bool> condition = delegate (Signature s)
             {
                 return (s.Name == authorName);
+            };
+            return GetMessages(condition);
+        }
+
+        public List<string> MessagesTexts(string authorName,DateTime from, DateTime to)
+        {
+            Func<Signature, bool> condition = delegate (Signature s)
+            {
+                return (s.When.Date < to.Date && s.When.Date > from.Date && s.Name == authorName);
             };
             return GetMessages(condition);
         }

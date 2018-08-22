@@ -20,9 +20,12 @@ namespace CodeAnalizer
         private List<FileAnalizer> analizers;
         private List<Contributor> contributors;
         GitChangesTracker GCT;
+
+        public List<FileAnalizer> Analizers { get => analizers; set => analizers = value; }
+
         public ProjectAnalizer(Language lan, string pathToRepo)
         {
-            analizers = new List<FileAnalizer>();
+            Analizers = new List<FileAnalizer>();
             contributors = new List<Contributor>();
             LanguageSelector.Language = lan;
 
@@ -34,7 +37,7 @@ namespace CodeAnalizer
         /// <param name="paths">Paths of files to add</param>
         public void AddFilesSet(string[] paths)
         {
-            analizers.Add(new FileAnalizer(paths));
+            Analizers.Add(new FileAnalizer(paths));
         }
         /// <summary>
         /// Adds new contributor to the project with set of files that belongs to him
@@ -45,8 +48,9 @@ namespace CodeAnalizer
         {
             FileAnalizer tmp = new FileAnalizer(paths);
             contributors.Add(new Contributor(name,tmp));
-            analizers.Add(tmp);
+            Analizers.Add(tmp);
         }
+
         /// <summary>
         /// Returns total number of line in project
         /// </summary>
@@ -54,7 +58,7 @@ namespace CodeAnalizer
         public int TotalLines()
         {
             int ret=0;
-            foreach (FileAnalizer item in analizers)
+            foreach (FileAnalizer item in Analizers)
             {
                 ret+= item.GetLinesCount();
             }
@@ -67,7 +71,7 @@ namespace CodeAnalizer
         public int TotalCharacters()
         {
             int ret = 0;
-            foreach (FileAnalizer item in analizers)
+            foreach (FileAnalizer item in Analizers)
             {
                 ret += item.GetCharacktersCount();
             }
@@ -80,7 +84,7 @@ namespace CodeAnalizer
         public int TotalUsings()
         {
             int ret = 0;
-            foreach (FileAnalizer item in analizers)
+            foreach (FileAnalizer item in Analizers)
             {
                 ret += item.GetUsingsCount();
             }
@@ -93,7 +97,7 @@ namespace CodeAnalizer
         public string ListAllFiles()
         {
             StringBuilder ret = new StringBuilder();
-            foreach (FileAnalizer analizer in analizers)
+            foreach (FileAnalizer analizer in Analizers)
             {
                 ret.Append( analizer.AnalizeFiles());
             }

@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4139A892-049C-4352-86F0-152273508099}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>CodeAnalizer</RootNamespace>
     <AssemblyName>CodeAnalizer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -52,11 +52,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ProjectAnalizerModule\Classes\AData.cs" />
-    <Compile Include="ProjectAnalizerModule\Classes\Analizer.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\FileAnalizer.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\BranchCollector.cs" />
+    <Compile Include="ProjectAnalizerModule\Classes\FileManager.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\GitAnalizer.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\GitChangesTracker.cs" />
+    <Compile Include="ProjectAnalizerModule\Exceptions\EmptyAnalizerException.cs" />
     <Compile Include="ProjectAnalizerModule\Exceptions\RepositoryNotFoundException.cs" />
     <Compile Include="ProjectAnalizerModule\Interfaces\IDataSource.cs" />
     <Compile Include="ProjectAnalizerModule\Interfaces\IGitBranchCollector.cs" />

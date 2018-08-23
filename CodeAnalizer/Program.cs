@@ -23,9 +23,8 @@ namespace CodeAnalizer
             //{
             //    msg += item + "\n";
             //}
-            msg +="+ "+ GCT.ChangedLinesCount().Item2+"\n- "+ GCT.ChangedLinesCount().Item1;
+            msg +="+ "+ GCT.ChangedLinesCount(DateTime.Today).Item1+"\n- "+ GCT.ChangedLinesCount(DateTime.Today).Item2;
             Console.WriteLine(msg);
-            throw new FileDoesntExistException(GCT.GetChanges(DateTime.Today).ToArray());
             //List<string> test = StringEditor.GetLines("dupa\ndupa\nsiur\n");
 
             //foreach (var item in test)

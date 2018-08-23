@@ -32,6 +32,12 @@ namespace CodeAnalizer
             foreach (var path in paths)
                 fileManager.RemoveFiles(path);
         }
+
+        //=================Statistics methods=============================
+        public int CountUsings()
+        {
+            return projectAnalizer.TotalUsings();
+        }
         public int CountProjectsLines()
         {
             return projectAnalizer.TotalLines();

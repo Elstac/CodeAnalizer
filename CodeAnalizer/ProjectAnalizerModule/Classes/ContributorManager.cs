@@ -17,7 +17,7 @@ namespace CodeAnalizer
 
         public void AddContributor(string name)
         {
-            contributors.Add(new Contributor(name))
+            contributors.Add(new Contributor(name));
         }
     }
 }

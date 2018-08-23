@@ -53,12 +53,14 @@
   <ItemGroup>
     <Compile Include="ProjectAnalizerModule\Classes\AData.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\AnalizerBus.cs" />
+    <Compile Include="ProjectAnalizerModule\Classes\ContributorManager.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\FileAnalizer.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\BranchCollector.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\FileManager.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\GitAnalizer.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\GitChangesTracker.cs" />
     <Compile Include="ProjectAnalizerModule\Exceptions\EmptyAnalizerException.cs" />
+    <Compile Include="ProjectAnalizerModule\Exceptions\FileDoesntExistException.cs" />
     <Compile Include="ProjectAnalizerModule\Exceptions\RepositoryNotFoundException.cs" />
     <Compile Include="ProjectAnalizerModule\Interfaces\IDataSource.cs" />
     <Compile Include="ProjectAnalizerModule\Interfaces\IGitBranchCollector.cs" />

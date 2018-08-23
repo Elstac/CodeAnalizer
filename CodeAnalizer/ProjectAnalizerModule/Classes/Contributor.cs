@@ -30,7 +30,7 @@ namespace CodeAnalizer
             WasteParam = (((float)analizer.GetEmptyLines() / analizer.GetLinesCount())*100);
         }
 
-        public void AddFiles(string paths[])
+        public void AddFiles(string paths)
         {
 
         }

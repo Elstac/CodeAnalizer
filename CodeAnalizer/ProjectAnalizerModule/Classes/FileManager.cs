@@ -10,7 +10,7 @@ namespace CodeAnalizer
     /// Class responsible for managing FileAnalizers set. Res: adding new analizers, returning analizers list
     /// removing file from all analizers,
     /// </summary>
-    class FileManager
+    public class FileManager
     {
         private List<FileAnalizer> _analizers;
 

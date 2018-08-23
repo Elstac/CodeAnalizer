@@ -19,7 +19,6 @@ namespace CodeAnalizer
     {
         private List<FileAnalizer> analizers;
         private List<Contributor> contributors;
-        GitChangesTracker GCT;
 
         public List<FileAnalizer> Analizers { get => analizers; set => analizers = value; }
 
@@ -28,8 +27,6 @@ namespace CodeAnalizer
             Analizers = new List<FileAnalizer>();
             contributors = new List<Contributor>();
             LanguageSelector.Language = lan;
-
-            GCT = new GitChangesTracker(pathToRepo);
         }
         /// <summary>
         /// Adds contributorless analizer for grup of files

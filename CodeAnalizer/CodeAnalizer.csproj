@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ProjectAnalizerModule\Classes\AData.cs" />
+    <Compile Include="ProjectAnalizerModule\Classes\AnalizerBus.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\FileAnalizer.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\BranchCollector.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\FileManager.cs" />

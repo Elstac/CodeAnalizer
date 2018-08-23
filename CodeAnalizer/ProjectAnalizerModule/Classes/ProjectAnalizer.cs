@@ -22,19 +22,16 @@ namespace CodeAnalizer
 
         public List<FileAnalizer> Analizers { get => analizers; set => analizers = value; }
 
-        public ProjectAnalizer(Language lan, string pathToRepo)
+        public ProjectAnalizer()
         {
             Analizers = new List<FileAnalizer>();
             contributors = new List<Contributor>();
-            LanguageSelector.Language = lan;
         }
-        /// <summary>
-        /// Adds contributorless analizer for grup of files
-        /// </summary>
-        /// <param name="paths">Paths of files to add</param>
-        public void AddFilesSet(string[] paths)
+
+        public ProjectAnalizer(List<FileAnalizer> analizers)
         {
-            Analizers.Add(new FileAnalizer(paths));
+            Analizers = analizers;
+            contributors = new List<Contributor>();
         }
         /// <summary>
         /// Adds new contributor to the project with set of files that belongs to him

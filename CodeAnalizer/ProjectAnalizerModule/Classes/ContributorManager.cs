@@ -19,5 +19,20 @@ namespace CodeAnalizer
         {
             contributors.Add(new Contributor(name));
         }
+
+        public void AddContributor(string name,string[] paths)
+        {
+            contributors.Add(new Contributor(name,new FileAnalizer(paths)));
+        }
+
+        public void RemoveFile(string contributorName, string path)
+        {
+            bool succes = false;
+            foreach (var con in contributors)
+            {
+                if(con.Name == contributorName)
+                    
+            }
+        }
     }
 }

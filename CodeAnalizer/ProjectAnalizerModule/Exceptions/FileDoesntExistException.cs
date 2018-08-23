@@ -23,12 +23,11 @@ namespace CodeAnalizer
                 msg += paths.Length > 1 ? "s: " : ": ";
                 foreach (var path in paths)
                 {
-                    msg += paths + ", ";
+                    msg += path + ", ";
                 }
                 msg = msg.Substring(0, msg.Length - 2);
                 msg += " not exist";
             }
-            throw new FileDoesntExistException(msg, paths.ToList());
         }
         private FileDoesntExistException(string msg,List<string>paths) : base(msg)
         {

@@ -17,24 +17,15 @@ namespace CodeAnalizer
         
         public FileAnalizer(string[] paths)
         {
-            List<string> tmp = new List<string>();
-            foreach (var path in paths)
-            {
-                if (Directory.Exists(path))
-                    tmp.AddRange(FindFilesInDirectory(path));
-                else if (File.Exists(path))
-                    tmp.Add(path);
-                else
-                    throw new FileNotFoundException("File or directory: " + path + " doesnt exist");
-            }
-            this.paths=tmp;
+            this.paths = new List<string>();
+            AddFiles(paths);
         }
         
-        public string[] FindFilesInDirectory(string path)
+        public void AddFiles(string[] paths)
         {
-            Lister ls = new Lister(LanguageSelector.GetFileFormats());
-            return ls.ListFiles(path);
+            this.paths.AddRange(paths);
         }
+        
         /// <summary>
         /// Lists all files in file set with thier statistics( lines, empty lines, chracters...).
         /// </summary>

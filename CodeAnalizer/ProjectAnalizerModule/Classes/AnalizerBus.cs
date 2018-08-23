@@ -9,6 +9,7 @@ namespace CodeAnalizer
     public class AnalizerBus
     {
         FileManager fileManager;
+        ContributorManager contributorManager;
         ProjectAnalizer projectAnalizer;
         GitChangesTracker gitChangesTracker;
 
@@ -17,7 +18,7 @@ namespace CodeAnalizer
             LanguageSelector.Language = lan;
             fileManager = new FileManager(paths);
             projectAnalizer = new ProjectAnalizer(fileManager.Analizers);
-
+            contributorManager = new ContributorManager();
         }
 
         //================File manage methods==================
@@ -33,6 +34,11 @@ namespace CodeAnalizer
                 fileManager.RemoveFiles(path);
         }
 
+        //===================Contributors management======================
+        public void AddContributor(string name)
+        {
+
+        }
         //=================Statistics methods=============================
         public int CountUsings()
         {

@@ -25,6 +25,21 @@ namespace CodeAnalizer
             contributors.Add(new Contributor(name,new FileAnalizer(paths)));
         }
 
+        public void AddFilesToContributor(string contributorName, string[] paths)
+        {
+            bool succes = false;
+            foreach (var con in contributors)
+            {
+                if (con.Name == contributorName)
+                {
+                    succes = true;
+                    con.AddFiles(paths);
+                }
+                if (!succes)
+                    throw new MissingFieldException("Contributor " + contributorName + " doesnt exist");
+
+            }
+        }
         public void RemoveFiles(string contributorName, string[] paths)
         {
             bool succes = false;
@@ -40,5 +55,6 @@ namespace CodeAnalizer
                
             }
         }
+
     }
 }

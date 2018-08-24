@@ -147,18 +147,30 @@ namespace CodeAnalizer
             return ret.ToString();
         }
 
-        public string GetSecondaryStats()
+        public string GetLargestFile()
         {
-            StringBuilder ret = new StringBuilder();
-            foreach (var item in contributors)
+            FileAnalizer maxAnalizer = new FileAnalizer();
+            string[] tmp = new string[1];
+            foreach (var analizer in analizers)
             {
-                ret.Append(item.Name + ":\n" +
-                    "Largest File: " + item.Analizer.GetLargestFile()+", Smallest File: " + item.Analizer.GetSmallestFile()+"\n");
+                tmp[0] = analizer.GetLargestFile();
+                maxAnalizer.AddFiles(tmp);
             }
 
-            return ret.ToString();
+            return maxAnalizer.GetLargestFile();
+        }
+        public string GetSmallestFile()
+        {
+            FileAnalizer minAnalizer = new FileAnalizer();
+            string[] tmp = new string[1];
+            foreach (var analizer in analizers)
+            {
+                tmp[0] = analizer.GetSmallestFile();
+                minAnalizer.AddFiles(tmp);
+            }
+
+            return minAnalizer.GetSmallestFile();
         }
 
-       
     }
 }

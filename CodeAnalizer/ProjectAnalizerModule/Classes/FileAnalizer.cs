@@ -14,7 +14,12 @@ namespace CodeAnalizer
     {
         private DataMiner dataminer = new DataMiner(LanguageSelector.GetMethodTemlate(),LanguageSelector.GetNamePosition());
         private List<string> paths;
-        
+
+        public FileAnalizer()
+        {
+            this.paths = new List<string>();
+        }
+
         public FileAnalizer(string[] paths)
         {
             this.paths = new List<string>();

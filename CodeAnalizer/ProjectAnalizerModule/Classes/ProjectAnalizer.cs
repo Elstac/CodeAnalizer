@@ -33,17 +33,6 @@ namespace CodeAnalizer
             Analizers = analizers;
             contributors = new List<Contributor>();
         }
-        /// <summary>
-        /// Adds new contributor to the project with set of files that belongs to him
-        /// </summary>
-        /// <param name="name">Name of contributor</param>
-        /// <param name="paths">Paths to contributors files</param>
-        public void AddContributor(string name, string[] paths)
-        {
-            FileAnalizer tmp = new FileAnalizer(paths);
-            contributors.Add(new Contributor(name,tmp));
-            Analizers.Add(tmp);
-        }
 
         /// <summary>
         /// Returns total number of line in project

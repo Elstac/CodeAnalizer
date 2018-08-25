@@ -126,7 +126,7 @@ namespace CodeAnalizer
         /// <returns>String contains path to finded file or meesage saing that that file doesnt exist</returns>
         public string GetLargestFile()
         {
-            string ret="There is no largest file";
+            string ret=paths[0];
             int maxChar = 0,tmp;
             foreach (var path in paths)
             {
@@ -146,8 +146,7 @@ namespace CodeAnalizer
         /// <returns>String contains path to finded file or meesage saing that file doesnt exist</returns>
         public string GetSmallestFile()
         {
-            string ret = "There is no smallest file";
-
+            string ret = paths[0];
             int minChar = dataminer.CountCharacters(paths[0]), tmp;
             foreach (var path in paths)
             {

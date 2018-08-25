@@ -16,7 +16,7 @@ namespace CodeAnalizer
         public AnalizerBus(string[] paths,Language lan)
         {
             LanguageSelector.Language = lan;
-            fileManager = new FileManager(paths);
+            fileManager = new FileManager(paths,lan);
             projectAnalizer = new ProjectAnalizer(fileManager.Analizers);
             contributorManager = new ContributorManager();
         }

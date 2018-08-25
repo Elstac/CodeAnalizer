@@ -13,19 +13,31 @@ namespace CodeAnalizer
     public class FileManager
     {
         private List<FileAnalizer> _analizers;
-
+        Lister fileLister;
         public List<FileAnalizer> Analizers { get => _analizers;}
 
-        public FileManager(string[]paths)
+        public FileManager(string[]paths, Language lan)
         {
+            LanguageSelector.Language = lan;
             _analizers = new List<FileAnalizer>();
-            _analizers.Add(new FileAnalizer(paths));
 
+            fileLister = new Lister(LanguageSelector.GetFileFormats());
+            AddFilesGroup(paths);
         }
 
         public void AddFilesGroup(string[] paths)
         {
-            Analizers.Add(new FileAnalizer(paths));
+            List<string> toAdd = new List<string>();
+            foreach (var path in paths)
+            {
+                if (Directory.Exists(path))
+                {
+                    toAdd.AddRange(fileLister.ListFiles(path));
+                }
+                else
+                    toAdd.Add(path);
+            }
+            Analizers.Add(new FileAnalizer(toAdd.ToArray()));
         }
 
         public void RemoveFiles(string path)

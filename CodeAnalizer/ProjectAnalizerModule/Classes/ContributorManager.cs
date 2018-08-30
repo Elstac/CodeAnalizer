@@ -18,6 +18,7 @@ namespace CodeAnalizer
         public void AddContributor(string name)
         {
             contributors.Add(new Contributor(name));
+            
         }
 
         public void AddContributor(string name,string[] paths)

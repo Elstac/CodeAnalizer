@@ -9,11 +9,12 @@ namespace CodeAnalizer
     public class ContributorManager
     {
         private List<Contributor> contributors;
-
+        public List<Contributor> Contributors { get => contributors;}
         public ContributorManager()
         {
             contributors = new List<Contributor>();
         }
+
 
         public void AddContributor(string name)
         {

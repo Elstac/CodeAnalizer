@@ -28,9 +28,7 @@ namespace CodeAnalizer
 
             return ret;
         }
-
-
-
+        
         private string[] ListFilesRec(string directory)
         {
             string[] tmp = Directory.GetFiles(directory);

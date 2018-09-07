@@ -24,6 +24,7 @@ namespace CodeAnalizer
         {
             Name = name;
             WasteParam = 0;
+            
         }
         public Contributor(string name, FileAnalizer analizer)
         {

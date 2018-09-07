@@ -77,14 +77,15 @@ namespace CodeAnalizer
         /// List all files with thier statistics: lines, characters, usings, empty lines, characters/line...
         /// </summary>
         /// <returns>string containig those informations</returns>
-        public string ListAllFiles()
+        private string ListAllFiles()
         {
-            StringBuilder ret = new StringBuilder();
-            foreach (FileAnalizer analizer in Analizers)
-            {
-                ret.Append( analizer.AnalizeFiles());
-            }
-            return ret.ToString();
+            //StringBuilder ret = new StringBuilder();
+            //foreach (FileAnalizer analizer in Analizers)
+            //{
+            //    ret.Append( analizer.AnalizeFiles());
+            //}
+            //return ret.ToString();
+            return null;
         }
         /// <summary>
         /// Creates contribution log of specified type
@@ -128,10 +129,10 @@ namespace CodeAnalizer
             }
             else if (type == ContributionType.Files)
             {
-                foreach (Contributor contributor in contributors)
-                {
-                    ret.Append(contributor.Name+":\n"+ contributor.Analizer.AnalizeFiles());
-                }
+                //foreach (Contributor contributor in contributors)
+                //{
+                //    ret.Append(contributor.Name+":\n"+ contributor.Analizer.AnalizeFiles());
+                //}
             }
             return ret.ToString();
         }

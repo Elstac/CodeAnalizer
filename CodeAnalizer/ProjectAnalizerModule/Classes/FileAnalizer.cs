@@ -25,31 +25,19 @@ namespace CodeAnalizer
             this.paths = new List<string>();
             AddFiles(paths);
         }
-        
+
         public void AddFiles(string[] paths)
         {
-            this.paths.AddRange(paths);
-        }
-        
-        /// <summary>
-        /// Lists all files in file set with thier statistics( lines, empty lines, chracters...).
-        /// </summary>
-        /// <returns>String containing list of files</returns>
-        public string AnalizeFiles()
-        {
-            StringBuilder ret = new StringBuilder();
+            List<string> tmp = new List<string>();
             foreach (var path in paths)
             {
-                
-                ret.Append(path+"\n");
-                ret.Append("| Lines: "+ dataminer.CountLines(path));
-                ret.Append(" | Empty Lines: "+dataminer.CountEmpty(path));
-                ret.Append(" | Characters: "+dataminer.CountCharacters(path));
-                ret.Append(" | Methods: " + dataminer.CountMethods(path) + " |\n");
-
+                if (Directory.Exists(path))
+                    tmp.AddRange(FindFilesInDirectory(path));
+                else if (File.Exists(path))
+                    tmp.Add(path);
             }
-            
-            return ret.ToString();
+
+            this.paths.AddRange(tmp);
         }
 
         public int GetLinesCount()
@@ -174,6 +162,12 @@ namespace CodeAnalizer
                 }
             }
             return false;
+        }
+
+        private string[] FindFilesInDirectory(string path)
+        {
+            Lister ls = new Lister(LanguageSelector.GetFileFormats());
+            return ls.ListFiles(path);
         }
     }
 }

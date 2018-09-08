@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodeAnalizer.ProjectAnalizerModule.Classes.MinorClasses
+namespace CodeAnalizer
 {
     class DateRange
     {

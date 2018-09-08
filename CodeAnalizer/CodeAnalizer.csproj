@@ -86,6 +86,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="FileAnalizerModule\" />
+    <Folder Include="GitTrackerModule\Classes\" />
+    <Folder Include="GitTrackerModule\Exceptions\" />
+    <Folder Include="GitTrackerModule\Interfaces\" />
     <Folder Include="TrackerModule\Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

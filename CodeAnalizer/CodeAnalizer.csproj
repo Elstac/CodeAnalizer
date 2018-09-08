@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GitTrackerModule\Classes\GitChangesTracker.cs" />
+    <Compile Include="MinorClasses\DateRange.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\AData.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\AnalizerBus.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\ContributorManager.cs" />
@@ -86,7 +88,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="FileAnalizerModule\" />
-    <Folder Include="GitTrackerModule\Classes\" />
     <Folder Include="GitTrackerModule\Exceptions\" />
     <Folder Include="GitTrackerModule\Interfaces\" />
     <Folder Include="TrackerModule\Interfaces\" />

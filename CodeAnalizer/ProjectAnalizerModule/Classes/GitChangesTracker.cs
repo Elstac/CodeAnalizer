@@ -35,7 +35,7 @@ namespace CodeAnalizer
                 branches.Add(new BranchCollector(pathToRepo, branch.FriendlyName));
         }
 
-        //===========================ChangedLines========================
+        #region ChangedLines
 
         public Tuple<int, int> ChangedLinesCount()
         {
@@ -76,6 +76,7 @@ namespace CodeAnalizer
 
             return AddChangedLines(con);
         }
+        #endregion
 
         private Tuple<int,int> AddChangedLines(Func<Signature,bool> condition)
         {
@@ -92,8 +93,7 @@ namespace CodeAnalizer
             }
             return new Tuple<int, int>(add, del);
         }
-
-        //==============ComitsCount======================
+        
 
         public int CommitsCount()
         {

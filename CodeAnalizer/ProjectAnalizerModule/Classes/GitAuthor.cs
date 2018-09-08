@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodeAnalizer
+namespace CodeAnalizer.ProjectAnalizerModule.Classes
 {
-    class Changes
+    class GitAuthor
     {
+        private string name;
+
     }
 }

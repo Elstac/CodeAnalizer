@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeAnalizer
 {
-    class DateRange
+    public class DateRange
     {
         private DateTime begin;
         private DateTime end;

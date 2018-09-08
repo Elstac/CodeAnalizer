@@ -11,10 +11,9 @@ namespace CodeAnalizer
     /// Class responsible for gathering data from whole repo( n# of commits, lines chnged in given time range,
     /// Known issues: changes in first commit isnt count to n# of changed lines
     /// </summary>
-    public class GitChangesTracker : IGitChangesTracker
+    public class GitChangesTracker
     {
         private List<Commit> commits;
-        private List<BranchCollector> branches;
         private Diff diff;
         /// <summary>
         /// Initialize class, throws _RepositoryNotFoundException_ when was given wrong path, NS
@@ -25,14 +24,11 @@ namespace CodeAnalizer
             if (!Directory.Exists(pathToRepo + "/.git"))
                 throw new RepositoryNotFoundException("There is no repo");
 
-            branches = new List<BranchCollector>();
             Repository repo = new Repository(pathToRepo);
 
             commits = repo.Commits.ToList();
             diff = repo.Diff;
 
-            foreach (var branch in repo.Branches)
-                branches.Add(new BranchCollector(pathToRepo, branch.FriendlyName));
         }
 
         #region ChangedLines
@@ -46,39 +42,42 @@ namespace CodeAnalizer
 
         public Tuple<int, int> ChangedLinesCount(DateTime date)
         {
-            Func<Signature, bool> con = delegate (Signature sig){ return (sig.When.Date == date.Date); };
+            Func<Signature, bool> con = delegate (Signature sig) { return (sig.When.Date == date.Date); };
 
             return AddChangedLines(con);
         }
 
         public Tuple<int, int> ChangedLinesCount(DateTime from, DateTime to)
         {
-            Func<Signature, bool> con = delegate (Signature sig) {
-                return (sig.When.Date >= from.Date && sig.When.Date <= to.Date); };
+            Func<Signature, bool> con = delegate (Signature sig)
+            {
+                return (sig.When.Date >= from.Date && sig.When.Date <= to.Date);
+            };
 
             return AddChangedLines(con);
         }
 
         public Tuple<int, int> ChangedLinesCount(string authorName)
         {
-            Func<Signature, bool> con = delegate (Signature sig) {
+            Func<Signature, bool> con = delegate (Signature sig)
+            {
                 return (authorName == sig.Name);
             };
 
             return AddChangedLines(con);
         }
 
-        public Tuple<int, int> ChangedLinesCount(string authorName,DateTime from, DateTime to)
+        public Tuple<int, int> ChangedLinesCount(string authorName, DateTime from, DateTime to)
         {
-            Func<Signature, bool> con = delegate (Signature sig) {
-                return (sig.When.Date >= from.Date && sig.When.Date <= to.Date && authorName== sig.Name);
+            Func<Signature, bool> con = delegate (Signature sig)
+            {
+                return (sig.When.Date >= from.Date && sig.When.Date <= to.Date && authorName == sig.Name);
             };
 
             return AddChangedLines(con);
         }
-        #endregion
 
-        private Tuple<int,int> AddChangedLines(Func<Signature,bool> condition)
+        private Tuple<int, int> AddChangedLines(Func<Signature, bool> condition)
         {
             int add = 0, del = 0;
             foreach (var commit in commits)
@@ -93,7 +92,8 @@ namespace CodeAnalizer
             }
             return new Tuple<int, int>(add, del);
         }
-        
+        #endregion
+
 
         public int CommitsCount()
         {
@@ -113,7 +113,7 @@ namespace CodeAnalizer
         {
             int ret = 0;
             foreach (var commit in commits)
-                if (commit.Author.When.Date >= from && commit.Author.When.Date<=to)
+                if (commit.Author.When.Date >= from && commit.Author.When.Date <= to)
                     ret++;
             return ret;
         }
@@ -152,7 +152,7 @@ namespace CodeAnalizer
         {
             Func<Signature, bool> con = delegate (Signature sig)
             {
-                return (sig.When.Date >= from.Date&& sig.When.Date <= to.Date);
+                return (sig.When.Date >= from.Date && sig.When.Date <= to.Date);
             };
             return AddChanges(con);
         }
@@ -166,7 +166,7 @@ namespace CodeAnalizer
             return AddChanges(con);
         }
 
-        public List<string> GetChanges(string authorName,DateTime from, DateTime to)
+        public List<string> GetChanges(string authorName, DateTime from, DateTime to)
         {
             Func<Signature, bool> con = delegate (Signature sig)
             {
@@ -178,7 +178,7 @@ namespace CodeAnalizer
         /// Method add strings containing changed lines from commit which fulfill given condition
         /// </summary>
         ///<param name="condiditon">Logic func represents condition</param>
-        private List<string> AddChanges(Func<Signature,bool> condiditon)
+        private List<string> AddChanges(Func<Signature, bool> condiditon)
         {
             List<string> ret = new List<string>();
             foreach (var commit in commits)
@@ -199,7 +199,7 @@ namespace CodeAnalizer
         {
             string ret = "";
 
-            List<string> tmp= StringEditor.GetLines(content);
+            List<string> tmp = StringEditor.GetLines(content);
 
             foreach (var item in tmp)
             {
@@ -207,8 +207,8 @@ namespace CodeAnalizer
                 if (text.Length == 0)
                     continue;
                 if (text.First() == '+' || text.First() == '-')
-                    if (text.Length==1||(text[1] != '+' && text[1] != '-'))
-                        ret += text+"\n";
+                    if (text.Length == 1 || (text[1] != '+' && text[1] != '-'))
+                        ret += text + "\n";
             }
             return ret;
         }
@@ -250,7 +250,7 @@ namespace CodeAnalizer
             return GetMessages(condition);
         }
 
-        public List<string> MessagesTexts(string authorName,DateTime from, DateTime to)
+        public List<string> MessagesTexts(string authorName, DateTime from, DateTime to)
         {
             Func<Signature, bool> condition = delegate (Signature s)
             {
@@ -259,16 +259,16 @@ namespace CodeAnalizer
             return GetMessages(condition);
         }
 
-        private List<string> GetMessages(Func<Signature,bool> condition)
+        private List<string> GetMessages(Func<Signature, bool> condition)
         {
             List<string> ret = new List<string>();
             foreach (var commit in commits)
             {
-                if(condition(commit.Author))
+                if (condition(commit.Author))
                     ret.Add(commit.Id + ": " + commit.Message);
             }
             return ret;
         }
-    
     }
+        
 }

@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GitTrackerModule\Classes\GitChangesTracker.cs" />
+    <Compile Include="GitTrackerModule\Classes\RepoTracker.cs" />
     <Compile Include="MinorClasses\DateRange.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\AData.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\AnalizerBus.cs" />

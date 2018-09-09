@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 using LibGit2Sharp;
 namespace CodeAnalizer.GitTrackerModule.Classes
 {
-    class ContributorsFinder
+    /// <summary>
+    /// Static class which gathers list of contributors from given repository
+    /// </summary>
+    public static class ContributorsFinder
     {
 
         public static List<string> FindContributors(Repository repository)

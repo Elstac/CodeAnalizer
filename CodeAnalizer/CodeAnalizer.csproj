@@ -52,29 +52,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GitTrackerModule\Classes\GitChangesTracker.cs" />
+    <Compile Include="GitTrackerModule\Classes\ContributorsFinder.cs" />
     <Compile Include="GitTrackerModule\Classes\RepoTracker.cs" />
     <Compile Include="MinorClasses\DateRange.cs" />
-    <Compile Include="ProjectAnalizerModule\Classes\AData.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\AnalizerBus.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\ContributorManager.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\FileAnalizer.cs" />
-    <Compile Include="ProjectAnalizerModule\Classes\BranchCollector.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\FileManager.cs" />
-    <Compile Include="ProjectAnalizerModule\Classes\GitAnalizer.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\GitAuthor.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\GitChangesTracker.cs" />
     <Compile Include="ProjectAnalizerModule\Exceptions\EmptyAnalizerException.cs" />
     <Compile Include="ProjectAnalizerModule\Exceptions\FileDoesntExistException.cs" />
     <Compile Include="ProjectAnalizerModule\Exceptions\RepositoryNotFoundException.cs" />
-    <Compile Include="ProjectAnalizerModule\Interfaces\IDataSource.cs" />
     <Compile Include="ProjectAnalizerModule\Interfaces\IGitBranchCollector.cs" />
     <Compile Include="ProjectAnalizerModule\Interfaces\IGitChangeTracker.cs" />
-    <Compile Include="TrackerModule\Classes\Changes.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\Contributor.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\DataMiner.cs" />
-    <Compile Include="FileManagerModule\Classes\Encrypter.cs" />
-    <Compile Include="FileManagerModule\Classes\FileSaver.cs" />
-    <Compile Include="FileManagerModule\Interfaces\IFileSaver.cs" />
     <Compile Include="LanguageSelector.cs" />
     <Compile Include="Lister.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\MethodsFinder.cs" />
@@ -91,7 +84,6 @@
     <Folder Include="FileAnalizerModule\" />
     <Folder Include="GitTrackerModule\Exceptions\" />
     <Folder Include="GitTrackerModule\Interfaces\" />
-    <Folder Include="TrackerModule\Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

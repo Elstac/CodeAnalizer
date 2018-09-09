@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using CodeAnalizer;
 using System.IO;
+using CodeAnalizer;
 namespace CodeAnalizerTests
 {
     [TestFixture]
@@ -17,11 +17,11 @@ namespace CodeAnalizerTests
         public void PrepareTestFile()
         {
             LanguageSelector.Language = Language.Csharp;
-            miner = new DataMiner(LanguageSelector.GetMethodTemlate(),LanguageSelector.GetNamePosition());
-            
+            miner = new DataMiner(LanguageSelector.GetMethodTemlate(), LanguageSelector.GetNamePosition());
+
             testPath = "D:/Test.txt";
             //File.Create(testPath);
-            StreamWriter sw = new StreamWriter(new FileStream(testPath,FileMode.Create));
+            StreamWriter sw = new StreamWriter(new FileStream(testPath, FileMode.Create));
             sw.WriteLine("using Test;");
             sw.WriteLine("using Test2;");
             sw.WriteLine("///<summary>Test file method<summary>");

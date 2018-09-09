@@ -25,5 +25,9 @@ namespace CodeAnalizer
             begin = date;
             end = date;
         }
+        public bool IsInRange(DateTime date)
+        {
+            return (date >= Begin && date <= End);
+        }
     }
 }

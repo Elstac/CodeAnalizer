@@ -8,6 +8,7 @@ using System.IO;
 using CodeAnalizer;
 namespace CodeAnalizerTests
 {
+
     [TestFixture]
     public class DataMinerTest
     {

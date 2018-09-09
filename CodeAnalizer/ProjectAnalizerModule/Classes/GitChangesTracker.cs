@@ -166,6 +166,8 @@ namespace CodeAnalizer
             return AddChanges(con);
         }
 
+
+
         public List<string> GetChanges(string authorName, DateTime from, DateTime to)
         {
             Func<Signature, bool> con = delegate (Signature sig)
@@ -183,7 +185,7 @@ namespace CodeAnalizer
             List<string> ret = new List<string>();
             foreach (var commit in commits)
             {
-                if (commit.Parents.ToList().Count > 1 || commit.Parents.ToList().Count < 1)
+                if (commit.Parents.ToList().Count !=1)
                     continue;
 
                 if (!condiditon(commit.Author))

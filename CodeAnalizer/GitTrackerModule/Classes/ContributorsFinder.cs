@@ -21,9 +21,14 @@ namespace CodeAnalizer.GitTrackerModule.Classes
             {
                 tmp = new AuthorInfo(commit.Author.Name, commit.Author.Email);
                 if (ret.Contains(tmp))
+                {
+                    int index = ret.IndexOf(tmp);
+                    ret[index].commits.Add(commit);
                     continue;
+                }
 
                 ret.Add(tmp);
+                ret.Last().commits.Add(commit);
             }
             return ret;
         }

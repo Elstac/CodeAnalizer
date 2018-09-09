@@ -12,10 +12,10 @@ namespace CodeAnalizer.GitTrackerModule.Classes
         private string email;
         private Commit[] commits;
         private Diff diff;
-        public AuthorTracker(string name, string email, Commit[] commits,Diff diff):base()
+        public AuthorTracker(AuthorInfo info, Commit[] commits,Diff diff):base()
         {
-            this.name = name;
-            this.email = email;
+            this.name = info.name;
+            this.email = info.email;
             this.commits = commits;
             this.diff = diff;
         }

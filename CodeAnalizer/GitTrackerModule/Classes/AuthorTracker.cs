@@ -26,12 +26,32 @@ namespace CodeAnalizer.GitTrackerModule.Classes
 
         public override Tuple<int, int> ChangedLinesCount()
         {
-            return base.ChangedLinesCount();
+            Func<Signature, bool> con = delegate (Signature sig) { return true; };
+
+            return AddChangedLines(con);
         }
 
         public override Tuple<int, int> ChangedLinesCount(DateRange dateRnage)
         {
-            return base.ChangedLinesCount(dateRnage);
+            Func<Signature, bool> con = delegate (Signature sig) { return dateRnage.IsInRange(sig.When.Date); };
+
+            return AddChangedLines(con);
+        }
+
+        private Tuple<int, int> AddChangedLines(Func<Signature, bool> condition)
+        {
+            int add = 0, del = 0;
+            foreach (var commit in commits)
+            {
+                if (commit.Parents.ToList().Count > 1 || commit.Parents.ToList().Count < 1)
+                    continue;
+                if (!condition(commit.Author))
+                    continue;
+                Patch tmp = diff.Compare<Patch>(commit.Parents.First().Tree, commit.Tree);
+                add += tmp.LinesAdded;
+                del += tmp.LinesDeleted;
+            }
+            return new Tuple<int, int>(add, del);
         }
 
         public override int CommitsCount()
@@ -87,12 +107,30 @@ namespace CodeAnalizer.GitTrackerModule.Classes
 
         public override List<string> MessagesTexts()
         {
-            return base.MessagesTexts();
+            Func<Signature, bool> condition = delegate (Signature s)
+            {
+                return true;
+            };
+            return GetMessages(condition);
         }
 
         public override List<string> MessagesTexts(DateRange dateRange)
         {
-            return base.MessagesTexts(dateRange);
+            Func<Signature, bool> condition = delegate (Signature s)
+            {
+                return (dateRange.IsInRange(s.When.Date));
+            };
+            return GetMessages(condition);
+        }
+        private List<string> GetMessages(Func<Signature, bool> condition)
+        {
+            List<string> ret = new List<string>();
+            foreach (var commit in commits)
+            {
+                if (condition(commit.Author))
+                    ret.Add(commit.Id + ": " + commit.Message);
+            }
+            return ret;
         }
     }
 }

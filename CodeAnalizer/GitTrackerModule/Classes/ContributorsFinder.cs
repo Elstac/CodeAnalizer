@@ -12,17 +12,18 @@ namespace CodeAnalizer.GitTrackerModule.Classes
     public static class ContributorsFinder
     {
 
-        public static List<string> FindContributors(Repository repository)
+        public static List<AuthorInfo> FindContributors(Repository repository)
         {
-            List<string> ret = new List<string>();
-
+            List<AuthorInfo> ret = new List<AuthorInfo>();
+            AuthorInfo tmp;
             Commit[] commits = repository.Commits.ToArray();
             foreach (var commit in commits)
             {
-                if (ret.Contains(commit.Author.Name))
+                tmp = new AuthorInfo(commit.Author.Name, commit.Author.Email);
+                if (ret.Contains(tmp))
                     continue;
 
-                ret.Add(commit.Author.Name);
+                ret.Add(tmp);
             }
             return ret;
         }

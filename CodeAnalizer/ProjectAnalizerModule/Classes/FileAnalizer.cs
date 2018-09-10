@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using CodeAnalizer.chuj;
 namespace CodeAnalizer
 {
     /// <summary>
@@ -111,7 +112,7 @@ namespace CodeAnalizer
         /// <summary>
         /// Finds largest file in file set.
         /// </summary>
-        /// <returns>String contains path to finded file or meesage saing that that file doesnt exist</returns>
+        /// <returns>String contains path to finded file or meesage saying that file doesnt exist</returns>
         public string GetLargestFile()
         {
             string ret=paths[0];

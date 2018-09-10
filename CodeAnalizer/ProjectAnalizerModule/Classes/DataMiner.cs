@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-namespace CodeAnalizer
+namespace CodeAnalizer.chuj
 {
     public enum CommentType
     {
@@ -65,6 +65,9 @@ namespace CodeAnalizer
             file.Close();
             return ret;
         }
+
+        
+
         public int CountUsings(string path)
         {
             FileStream file = new FileStream(path, FileMode.Open);

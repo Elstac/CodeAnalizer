@@ -56,9 +56,7 @@
     <Compile Include="GitTrackerModuleTests\RepoTrackerTest.cs" />
     <Compile Include="ListerTests.cs" />
     <Compile Include="MethodFinderTests.cs" />
-    <Compile Include="MethodTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RepositoryCreator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

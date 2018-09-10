@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using System.IO;
+using CodeAnalizer.FileAnalizerModule.Classes;
 using CodeAnalizer;
 namespace CodeAnalizerTests
 {
@@ -18,7 +19,6 @@ namespace CodeAnalizerTests
         public void PrepareTestFile()
         {
             LanguageSelector.Language = Language.Csharp;
-            miner = new DataMiner(LanguageSelector.GetMethodTemlate(), LanguageSelector.GetNamePosition());
 
             testPath = "D:/Test.txt";
             //File.Create(testPath);
@@ -38,6 +38,8 @@ namespace CodeAnalizerTests
             sw.WriteLine("   private double BigTest;");
 
             sw.Close();
+
+            miner = new DataMiner(LanguageSelector.GetMethodTemlate(),testPath);
         }
         [TearDown]
         public void CleanFile()
@@ -48,42 +50,42 @@ namespace CodeAnalizerTests
         public void CountCharsTest()
         {
             int expected = 171;
-            int output = miner.CountCharacters(testPath);
+            int output = miner.GetCharactersCount();
             Assert.AreEqual(expected, output);
         }
         [Test]
         public void CountLinesTest()
         {
             int expected = 12;
-            int output = miner.CountLines(testPath);
+            int output = miner.GetLinesCount();
             Assert.AreEqual(expected, output);
         }
         [Test]
         public void CountUsingsTest()
         {
             int expected = 2;
-            int output = miner.CountUsings(testPath);
+            int output = miner.GetUsingsCount();
             Assert.AreEqual(expected, output);
         }
         [Test]
         public void CountEmptyLinesTest()
         {
             int expected = 1;
-            int output = miner.CountEmpty(testPath);
+            int output = miner.GetEmptyLines();
             Assert.AreEqual(expected, output);
         }
         [Test]
         public void CountMethodsTest()
         {
             int expected = 1;
-            int output = miner.CountMethods(testPath);
+            int output = miner.GetMethodsCount();
             Assert.AreEqual(expected, output);
         }
         [Test]
         public void CountCommentsTest()
         {
             int expected = 5;
-            int output = miner.CountComments(testPath);
+            int output = miner.GetCommentLines();
             Assert.AreEqual(expected, output);
         }
 

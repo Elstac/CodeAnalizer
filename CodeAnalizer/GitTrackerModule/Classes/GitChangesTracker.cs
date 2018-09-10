@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeAnalizer.GitTrackerModule.Classes
 {
-    public abstract class GitChangesTracker
+    public abstract class GitChangesTracker:IGitChangesTracker
     {
         private List<GitChangesTracker> children;
 

@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4139A892-049C-4352-86F0-152273508099}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>CodeAnalizer</RootNamespace>
     <AssemblyName>CodeAnalizer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -51,8 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GitTrackerModule\Classes\AuthorInfo.cs" />
+    <Compile Include="GitTrackerModule\Classes\AuthorTracker.cs" />
     <Compile Include="GitTrackerModule\Classes\GitChangesTracker.cs" />
     <Compile Include="GitTrackerModule\Classes\ContributorsFinder.cs" />
+    <Compile Include="GitTrackerModule\Classes\GitDiffParser.cs" />
     <Compile Include="GitTrackerModule\Classes\RepoTracker.cs" />
     <Compile Include="MinorClasses\DateRange.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\AnalizerBus.cs" />
@@ -68,20 +71,19 @@
     <Compile Include="ProjectAnalizerModule\Interfaces\IGitChangeTracker.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\Contributor.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\DataMiner.cs" />
-    <Compile Include="LanguageSelector.cs" />
-    <Compile Include="Lister.cs" />
+    <Compile Include="MinorClasses\LanguageSelector.cs" />
+    <Compile Include="MinorClasses\Lister.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\MethodsFinder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\ProjectAnalizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StringEditor.cs" />
+    <Compile Include="MinorClasses\StringEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="FileAnalizerModule\" />
     <Folder Include="GitTrackerModule\Exceptions\" />
     <Folder Include="GitTrackerModule\Interfaces\" />
   </ItemGroup>

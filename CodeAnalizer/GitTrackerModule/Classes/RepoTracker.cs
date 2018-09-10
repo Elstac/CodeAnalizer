@@ -11,13 +11,13 @@ namespace CodeAnalizer.GitTrackerModule.Classes
     {
         public RepoTracker(string pathToRepo)
         {
-            Repository repo = new Repository(pathToRepo);
-            string[] conts = ContributorsFinder.FindContributors(repo).ToArray();
-            AuthorTracker tmp;
-            foreach (var cont in conts)
-            {
+            //Repository repo = new Repository(pathToRepo);
+            //string[] conts = ContributorsFinder.FindContributors(repo).ToArray();
+            //AuthorTracker tmp;
+            //foreach (var cont in conts)
+            //{
                 
-            }
+            //}
         }
     }
 }

@@ -15,6 +15,7 @@ namespace CodeAnalizer.GitTrackerModule.Classes
         {
             this.name = name;
             this.email = email;
+            commits = new List<Commit>();
         }
         public override bool Equals(object obj)
         {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 namespace CodeAnalizer
 { 
-    interface IGitChangesTracker
+    public interface IGitChangesTracker
     {
         Tuple<int,int> ChangedLinesCount();
         Tuple<int, int> ChangedLinesCount(DateRange dateRnage);

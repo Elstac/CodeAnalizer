@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using LibGit2Sharp;
 namespace CodeAnalizer.GitTrackerModule.Classes
 {
-    class AuthorTracker:GitChangesTracker
+    class AuthorTracker:IGitChangesTracker
     {
         private string name;
         private string email;
@@ -24,14 +24,14 @@ namespace CodeAnalizer.GitTrackerModule.Classes
         public string Email { get => email; set => email = value; }
         public List<Commit> Commits { get => commits; set => commits = value; }
 
-        public override Tuple<int, int> ChangedLinesCount()
+        public  Tuple<int, int> ChangedLinesCount()
         {
             Func<Signature, bool> con = delegate (Signature sig) { return true; };
 
             return AddChangedLines(con);
         }
 
-        public override Tuple<int, int> ChangedLinesCount(DateRange dateRnage)
+        public  Tuple<int, int> ChangedLinesCount(DateRange dateRnage)
         {
             Func<Signature, bool> con = delegate (Signature sig) { return dateRnage.IsInRange(sig.When.Date); };
 
@@ -54,12 +54,12 @@ namespace CodeAnalizer.GitTrackerModule.Classes
             return new Tuple<int, int>(add, del);
         }
 
-        public override int CommitsCount()
+        public  int CommitsCount()
         {
             return commits.Count;
         }
 
-        public override int CommitsCount(DateRange dateRange)
+        public  int CommitsCount(DateRange dateRange)
         {
             int ret = 0;
             foreach (var commit in commits)
@@ -68,7 +68,7 @@ namespace CodeAnalizer.GitTrackerModule.Classes
             return ret;
         }
 
-        public override List<string> GetChanges()
+        public  List<string> GetChanges()
         {
             Func<Signature, bool> con = delegate (Signature sig)
             {
@@ -77,7 +77,7 @@ namespace CodeAnalizer.GitTrackerModule.Classes
             return AddChanges(con);
         }
 
-        public override List<string> GetChanges(DateRange dateRange)
+        public  List<string> GetChanges(DateRange dateRange)
         {
             Func<Signature, bool> con = delegate (Signature sig)
             {
@@ -105,7 +105,7 @@ namespace CodeAnalizer.GitTrackerModule.Classes
 
        
 
-        public override List<string> MessagesTexts()
+        public  List<string> MessagesTexts()
         {
             Func<Signature, bool> condition = delegate (Signature s)
             {
@@ -114,7 +114,7 @@ namespace CodeAnalizer.GitTrackerModule.Classes
             return GetMessages(condition);
         }
 
-        public override List<string> MessagesTexts(DateRange dateRange)
+        public  List<string> MessagesTexts(DateRange dateRange)
         {
             Func<Signature, bool> condition = delegate (Signature s)
             {

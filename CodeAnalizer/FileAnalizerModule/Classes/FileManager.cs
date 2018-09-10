@@ -12,14 +12,14 @@ namespace CodeAnalizer
     /// </summary>
     public class FileManager
     {
-        private List<FileAnalizer> _analizers;
+        private List<FileSetAnalizer> _analizers;
         Lister fileLister;
-        public List<FileAnalizer> Analizers { get => _analizers;}
+        public List<FileSetAnalizer> Analizers { get => _analizers;}
 
         public FileManager(string[]paths, Language lan)
         {
             LanguageSelector.Language = lan;
-            _analizers = new List<FileAnalizer>();
+            _analizers = new List<FileSetAnalizer>();
 
             fileLister = new Lister(LanguageSelector.GetFileFormats());
             AddFilesGroup(paths);
@@ -37,7 +37,7 @@ namespace CodeAnalizer
                 else
                     toAdd.Add(path);
             }
-            Analizers.Add(new FileAnalizer(toAdd.ToArray()));
+            Analizers.Add(new FileSetAnalizer(toAdd.ToArray()));
         }
 
         public void RemoveFiles(string path)

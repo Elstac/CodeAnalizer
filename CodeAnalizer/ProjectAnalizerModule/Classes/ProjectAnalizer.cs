@@ -17,18 +17,18 @@ namespace CodeAnalizer
     /// </summary>
     public class ProjectAnalizer
     {
-        private List<FileAnalizer> analizers;
+        private List<FileSetAnalizer> analizers;
         private List<Contributor> contributors;
 
-        public List<FileAnalizer> Analizers { get => analizers; set => analizers = value; }
+        public List<FileSetAnalizer> Analizers { get => analizers; set => analizers = value; }
 
         public ProjectAnalizer()
         {
-            Analizers = new List<FileAnalizer>();
+            Analizers = new List<FileSetAnalizer>();
             contributors = new List<Contributor>();
         }
 
-        public ProjectAnalizer(List<FileAnalizer> analizers)
+        public ProjectAnalizer(List<FileSetAnalizer> analizers)
         {
             Analizers = analizers;
             contributors = new List<Contributor>();
@@ -41,7 +41,7 @@ namespace CodeAnalizer
         public int TotalLines()
         {
             int ret=0;
-            foreach (FileAnalizer item in Analizers)
+            foreach (FileSetAnalizer item in Analizers)
             {
                 ret+= item.GetLinesCount();
             }
@@ -54,7 +54,7 @@ namespace CodeAnalizer
         public int TotalCharacters()
         {
             int ret = 0;
-            foreach (FileAnalizer item in Analizers)
+            foreach (FileSetAnalizer item in Analizers)
             {
                 ret += item.GetCharacktersCount();
             }
@@ -67,7 +67,7 @@ namespace CodeAnalizer
         public int TotalUsings()
         {
             int ret = 0;
-            foreach (FileAnalizer item in Analizers)
+            foreach (FileSetAnalizer item in Analizers)
             {
                 ret += item.GetUsingsCount();
             }
@@ -139,7 +139,7 @@ namespace CodeAnalizer
 
         public string GetLargestFile()
         {
-            FileAnalizer maxAnalizer = new FileAnalizer();
+            FileSetAnalizer maxAnalizer = new FileSetAnalizer();
             string[] tmp = new string[1];
             foreach (var analizer in analizers)
             {
@@ -151,7 +151,7 @@ namespace CodeAnalizer
         }
         public string GetSmallestFile()
         {
-            FileAnalizer minAnalizer = new FileAnalizer();
+            FileSetAnalizer minAnalizer = new FileSetAnalizer();
             string[] tmp = new string[1];
             foreach (var analizer in analizers)
             {

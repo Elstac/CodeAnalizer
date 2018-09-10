@@ -24,7 +24,7 @@ namespace CodeAnalizer
 
         public void AddContributor(string name,string[] paths)
         {
-            contributors.Add(new Contributor(name,new FileAnalizer(paths)));
+            contributors.Add(new Contributor(name,new FileSetAnalizer(paths)));
         }
 
         public void AddFilesToContributor(string contributorName, string[] paths)

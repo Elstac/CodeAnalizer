@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using CodeAnalizer.FileAnalizerModule.Interfaces;
 namespace CodeAnalizer.FileAnalizerModule.Classes
 {
-    class FileSetAnalizer:FileMiner
+    class FileSetMiner:FileMiner
     {
-        public FileSetAnalizer(string[] paths):base()
+        public FileSetMiner(string[] paths):base()
         {
             DataMiner tmp;
 

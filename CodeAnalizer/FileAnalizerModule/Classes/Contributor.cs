@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using CodeAnalizer.FileAnalizerModule.Classes;
 namespace CodeAnalizer
 {
     /// <summary>
@@ -14,9 +15,9 @@ namespace CodeAnalizer
         private string _name;
         private string pathToImage;
         private float _wasteParam;
-        FileAnalizer analizer;
+        FileSetAnalizer analizer;
         public string Name { get => _name; set => _name = value; }
-        public FileAnalizer Analizer { get => analizer; }
+        public FileSetAnalizer Analizer { get => analizer; }
         public float WasteParam { get => _wasteParam; set => _wasteParam = value; }
         public string PathToImage { get => pathToImage; set => pathToImage = value; }
 
@@ -26,14 +27,14 @@ namespace CodeAnalizer
             WasteParam = 0;
             
         }
-        public Contributor(string name, FileAnalizer analizer)
+        public Contributor(string name, FileSetAnalizer analizer)
         {
             _name = name;
             this.analizer = analizer;
             WasteParam = (((float)analizer.GetEmptyLines() / analizer.GetLinesCount())*100);
         }
 
-        public Contributor(string name,string pathToImage ,FileAnalizer analizer)
+        public Contributor(string name,string pathToImage ,FileSetAnalizer analizer)
         {
             _name = name;
             PathToImage = pathToImage;

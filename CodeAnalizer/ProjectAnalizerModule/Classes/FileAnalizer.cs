@@ -11,17 +11,17 @@ namespace CodeAnalizer
     /// Class responsible for ghatering data from set of files. "Dataminer for multiple files" 
     /// and Pair filenames with stats.
     /// </summary>
-    public class FileAnalizer
+    public class FileSetAnalizer
     {
         private DataMiner dataminer = new DataMiner(LanguageSelector.GetMethodTemlate(),LanguageSelector.GetNamePosition());
         private List<string> paths;
 
-        public FileAnalizer()
+        public FileSetAnalizer()
         {
             this.paths = new List<string>();
         }
 
-        public FileAnalizer(string[] paths)
+        public FileSetAnalizer(string[] paths)
         {
             this.paths = new List<string>();
             AddFiles(paths);

@@ -10,19 +10,19 @@ namespace CodeAnalizer.GitTrackerModule.Classes
     {
         private string name;
         private string email;
-        private Commit[] commits;
+        private List<Commit> commits;
         private Diff diff;
-        public AuthorTracker(AuthorInfo info, Commit[] commits,Diff diff):base()
+        public AuthorTracker(AuthorInfo info,Diff diff):base()
         {
             this.name = info.name;
             this.email = info.email;
-            this.commits = commits;
+            this.commits = info.commits;
             this.diff = diff;
         }
 
         public string Name { get => name; set => name = value; }
         public string Email { get => email; set => email = value; }
-        public Commit[] Commits { get => commits; set => commits = value; }
+        public List<Commit> Commits { get => commits; set => commits = value; }
 
         public override Tuple<int, int> ChangedLinesCount()
         {
@@ -56,14 +56,14 @@ namespace CodeAnalizer.GitTrackerModule.Classes
 
         public override int CommitsCount()
         {
-            return commits.Length;
+            return commits.Count;
         }
 
         public override int CommitsCount(DateRange dateRange)
         {
             int ret = 0;
             foreach (var commit in commits)
-                if (commit.Author.When.Date <= dateRange.Begin.Date&& commit.Author.When.Date <= dateRange.End.Date)
+                if (commit.Author.When.Date <= dateRange.Begin.Date&& commit.Author.When.Date >= dateRange.End.Date)
                     ret++;
             return ret;
         }

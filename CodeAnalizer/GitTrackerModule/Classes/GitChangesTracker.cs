@@ -14,7 +14,7 @@ namespace CodeAnalizer.GitTrackerModule.Classes
         {
             children = new List<GitChangesTracker>();
         }
-        protected List<GitChangesTracker> Children { get => children; set => children = value; }
+        protected List<GitChangesTracker> Children { get => children; }
 
         public virtual Tuple<int, int> ChangedLinesCount()
         {
@@ -22,7 +22,7 @@ namespace CodeAnalizer.GitTrackerModule.Classes
             int add = 0, del = 0;
             foreach (var child in children)
             {
-                tmp = ChangedLinesCount();
+                tmp = child.ChangedLinesCount();
                 add += tmp.Item1;
                 del += tmp.Item2;
             }
@@ -35,7 +35,7 @@ namespace CodeAnalizer.GitTrackerModule.Classes
             int add = 0, del = 0;
             foreach (var child in children)
             {
-                tmp = ChangedLinesCount(dateRnage);
+                tmp = child.ChangedLinesCount(dateRnage);
                 add += tmp.Item1;
                 del += tmp.Item2;
             }

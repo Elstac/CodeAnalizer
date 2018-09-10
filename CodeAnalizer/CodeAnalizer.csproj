@@ -57,6 +57,7 @@
     <Compile Include="GitTrackerModule\Classes\ContributorsFinder.cs" />
     <Compile Include="GitTrackerModule\Classes\GitDiffParser.cs" />
     <Compile Include="GitTrackerModule\Classes\RepoTracker.cs" />
+    <Compile Include="GitTrackerModule\Interfaces\IGitChangesTracker.cs" />
     <Compile Include="MinorClasses\DateRange.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\AnalizerBus.cs" />
     <Compile Include="ProjectAnalizerModule\Classes\ContributorManager.cs" />
@@ -85,7 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="GitTrackerModule\Exceptions\" />
-    <Folder Include="GitTrackerModule\Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

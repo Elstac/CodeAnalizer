@@ -54,6 +54,7 @@
     <Compile Include="DataMinerTest.cs" />
     <Compile Include="GitChangesTrackerTests.cs" />
     <Compile Include="GitTrackerModuleTests\ContributorFinderTest.cs" />
+    <Compile Include="GitTrackerModuleTests\RepoTrackerTest.cs" />
     <Compile Include="ListerTests.cs" />
     <Compile Include="MethodFinderTests.cs" />
     <Compile Include="MethodTemplate.cs" />

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-namespace CodeAnalizer
+namespace CodeAnalizer.FileAnalizerModule.Classes
 {
     /// <summary>
     /// Class responsible for managing FileAnalizers set. Res: adding new analizers, returning analizers list

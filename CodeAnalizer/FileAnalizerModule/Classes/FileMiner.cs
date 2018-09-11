@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using CodeAnalizer.FileAnalizerModule.Interfaces;
 namespace CodeAnalizer.FileAnalizerModule.Classes
 {
-    class FileMiner : IFileMiner
+    public abstract class FileMiner : IFileMiner
     {
         private List<IFileMiner> children;
         public FileMiner()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeAnalizer.FileAnalizerModule.Interfaces
 {
-    interface IFileMiner
+    public interface IFileMiner
     {
         int GetCharactersCount();
         int GetCommentLines();

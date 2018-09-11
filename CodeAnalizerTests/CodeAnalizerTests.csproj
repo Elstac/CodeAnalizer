@@ -56,6 +56,7 @@
     <Compile Include="GitTrackerModuleTests\RepoTrackerTest.cs" />
     <Compile Include="ListerTests.cs" />
     <Compile Include="MethodFinderTests.cs" />
+    <Compile Include="ProjectMinerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

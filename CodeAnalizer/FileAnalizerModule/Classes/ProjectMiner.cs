@@ -16,24 +16,24 @@ namespace CodeAnalizer.FileAnalizerModule.Classes
     /// </summary>
     public class ProjectMiner:FileMiner
     {
-        private List<FileSetAnalizer> analizers;
+        private List<FileSetMiner> analizers;
 
-        public List<FileSetAnalizer> Analizers { get => analizers; set => analizers = value; }
+        public List<FileSetMiner> Analizers { get => analizers; set => analizers = value; }
 
         public ProjectMiner()
         {
-            Analizers = new List<FileSetAnalizer>();
+            Analizers = new List<FileSetMiner>();
         }
 
-        public ProjectMiner(List<FileSetAnalizer> analizers)
+        public ProjectMiner(List<FileSetMiner> analizers)
         {
             Analizers = analizers;
         }
 
         public ProjectMiner(string[] paths)
         {
-            analizers = new List<FileSetAnalizer>();
-            FileSetAnalizer analizer = new FileSetAnalizer(paths);
+            analizers = new List<FileSetMiner>();
+            FileSetMiner analizer = new FileSetMiner(paths);
 
         }
 

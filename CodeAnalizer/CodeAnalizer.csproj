@@ -53,7 +53,7 @@
   <ItemGroup>
     <Compile Include="FileAnalizerModule\Classes\DataMiner.cs" />
     <Compile Include="FileAnalizerModule\Classes\FileMiner.cs" />
-    <Compile Include="FileAnalizerModule\Classes\FileSetAnalizer.cs" />
+    <Compile Include="FileAnalizerModule\Classes\FileSetMiner.cs" />
     <Compile Include="FileAnalizerModule\Interfaces\IFileMiner.cs" />
     <Compile Include="GitTrackerModule\Classes\AuthorInfo.cs" />
     <Compile Include="GitTrackerModule\Classes\AuthorTracker.cs" />
@@ -63,16 +63,12 @@
     <Compile Include="GitTrackerModule\Classes\RepoTracker.cs" />
     <Compile Include="MinorClasses\DateRange.cs" />
     <Compile Include="FileAnalizerModule\Classes\ContributorManager.cs" />
-    <Compile Include="ProjectAnalizerModule\Classes\FileAnalizer.cs" />
     <Compile Include="FileAnalizerModule\Classes\FileManager.cs" />
-    <Compile Include="ProjectAnalizerModule\Classes\GitChangesTracker.cs" />
     <Compile Include="FileAnalizerModule\Exceptions\EmptyAnalizerException.cs" />
     <Compile Include="FileAnalizerModule\Exceptions\FileDoesntExistException.cs" />
     <Compile Include="FileAnalizerModule\Exceptions\RepositoryNotFoundException.cs" />
-    <Compile Include="ProjectAnalizerModule\Interfaces\IGitBranchCollector.cs" />
     <Compile Include="GitTrackerModule\Interfaces\IGitChangeTracker.cs" />
     <Compile Include="FileAnalizerModule\Classes\Contributor.cs" />
-    <Compile Include="ProjectAnalizerModule\Classes\DataMiner.cs" />
     <Compile Include="MinorClasses\LanguageSelector.cs" />
     <Compile Include="MinorClasses\Lister.cs" />
     <Compile Include="MinorClasses\MethodsFinder.cs" />

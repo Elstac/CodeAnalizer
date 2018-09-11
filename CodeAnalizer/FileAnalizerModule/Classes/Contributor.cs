@@ -13,13 +13,11 @@ namespace CodeAnalizer
     public class Contributor
     {
         private string _name;
-        private string pathToImage;
         private float _wasteParam;
-        FileSetAnalizer analizer;
+        FileSetMiner analizer;
         public string Name { get => _name; set => _name = value; }
-        public FileSetAnalizer Analizer { get => analizer; }
+        public FileSetMiner Analizer { get => analizer; }
         public float WasteParam { get => _wasteParam; set => _wasteParam = value; }
-        public string PathToImage { get => pathToImage; set => pathToImage = value; }
 
         public Contributor(string name)
         {
@@ -27,19 +25,11 @@ namespace CodeAnalizer
             WasteParam = 0;
             
         }
-        public Contributor(string name, FileSetAnalizer analizer)
+        public Contributor(string name, FileSetMiner analizer)
         {
             _name = name;
             this.analizer = analizer;
             WasteParam = (((float)analizer.GetEmptyLines() / analizer.GetLinesCount())*100);
-        }
-
-        public Contributor(string name,string pathToImage ,FileSetAnalizer analizer)
-        {
-            _name = name;
-            PathToImage = pathToImage;
-            this.analizer = analizer;
-            WasteParam = (((float)analizer.GetEmptyLines() / analizer.GetLinesCount()) * 100);
         }
 
         public void AddFiles(string[] paths)

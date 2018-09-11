@@ -18,6 +18,9 @@ namespace CodeAnalizer.FileAnalizerModule.Classes
     {
         private string path;
         private MethodsFinder finder;
+
+        public string Path { get => path; set => path = value; }
+
         public DataMiner(List<string>[] templates,string path)
         {
             this.path = path;

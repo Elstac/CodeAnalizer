@@ -15,26 +15,22 @@ namespace CodeAnalizer.FileAnalizerModule.Classes
     /// Class responsible for gathering stats for whole poject.
     /// </summary>
     public class ProjectMiner:FileMiner
-    {
-        private List<FileSetMiner> analizers;
+    { 
 
-        public List<FileSetMiner> Analizers { get => analizers; set => analizers = value; }
-
-        public ProjectMiner()
+        public ProjectMiner():base()
         {
-            Analizers = new List<FileSetMiner>();
+            
         }
 
-        public ProjectMiner(List<FileSetMiner> analizers)
+        public ProjectMiner(List<FileSetMiner> analizers) : base()
         {
-            Analizers = analizers;
+            Children.AddRange(analizers);
         }
 
-        public ProjectMiner(string[] paths)
+        public ProjectMiner(string[] paths) : base()
         {
-            analizers = new List<FileSetMiner>();
             FileSetMiner analizer = new FileSetMiner(paths);
-
+            Children.Add(analizer);
         }
 
     }

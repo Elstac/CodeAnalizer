@@ -58,6 +58,7 @@
     <Compile Include="MethodFinderTests.cs" />
     <Compile Include="ProjectMinerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestAuthorInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

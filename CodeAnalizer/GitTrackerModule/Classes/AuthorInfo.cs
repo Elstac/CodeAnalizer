@@ -17,6 +17,14 @@ namespace CodeAnalizer.GitTrackerModule.Classes
             this.email = email;
             commits = new List<Commit>();
         }
+
+        public AuthorInfo(string name, string email, List<Commit> commits)
+        {
+            this.name = name;
+            this.email = email;
+            this.commits = commits;
+        }
+
         public override bool Equals(object obj)
         {
             AuthorInfo tmp = obj as AuthorInfo;

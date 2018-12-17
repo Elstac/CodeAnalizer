@@ -47,7 +47,11 @@ namespace CodeAnalizer.FileAnalizerModule.Classes
             {
                 Tuple<int, string> tmp = child.GetLargestFile();
                 if (tmp.Item1 >= maxSize)
+                { 
                     path = tmp.Item2;
+                    maxSize = tmp.Item1;
+                }
+
 
             }
             return new Tuple<int, string>(maxSize, path);
@@ -71,12 +75,15 @@ namespace CodeAnalizer.FileAnalizerModule.Classes
 
         public Tuple<int, string> GetSmallestFile()
         {
-            string path = ""; int minSize = 0;
+            string path = ""; int minSize = 1000000;
             foreach (var child in children)
             {
                 Tuple<int, string> tmp = child.GetSmallestFile();
                 if (tmp.Item1 <= minSize)
+                {
                     path = tmp.Item2;
+                    minSize = tmp.Item1;
+                }
 
             }
             return new Tuple<int, string>(minSize, path);

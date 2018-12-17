@@ -97,7 +97,7 @@ namespace CodeAnalizer.FileAnalizerModule.Classes
 
         public Tuple<int, string> GetLargestFile()
         {
-            throw new NotImplementedException();
+            return new Tuple<int, string>(GetCharactersCount(), path);
         }
 
         public int GetLinesCount()
@@ -143,7 +143,7 @@ namespace CodeAnalizer.FileAnalizerModule.Classes
 
         public Tuple<int, string> GetSmallestFile()
         {
-            throw new NotImplementedException();
+            return new Tuple<int, string>(GetCharactersCount(), path);
         }
 
         public int GetUsingsCount()

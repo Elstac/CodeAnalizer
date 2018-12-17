@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CodeAnalizer.GitTrackerModule.Classes;
 using System.Linq;
 namespace CodeAnalizer
 { 
@@ -16,5 +17,7 @@ namespace CodeAnalizer
 
         List<string> GetChanges();
         List<string> GetChanges(DateRange dateRange);
+
+        List<AuthorInfo> GetAuthorts();
     }
 }

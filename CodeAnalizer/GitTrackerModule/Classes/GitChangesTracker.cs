@@ -14,7 +14,7 @@ namespace CodeAnalizer.GitTrackerModule.Classes
         {
             children = new List<IGitChangesTracker>();
         }
-        protected List<IGitChangesTracker> Children { get => children; }
+        public List<IGitChangesTracker> Children { get => children; }
 
         public virtual Tuple<int, int> ChangedLinesCount()
         {
@@ -97,6 +97,16 @@ namespace CodeAnalizer.GitTrackerModule.Classes
         public void AddChildren(IGitChangesTracker gtc)
         {
             children.Add(gtc);
+        }
+
+        public List<AuthorInfo> GetAuthorts()
+        {
+            List<AuthorInfo> ret = new List<AuthorInfo>();
+            foreach (var child in children)
+            {
+                ret.AddRange(child.GetAuthorts());
+            }
+            return ret;
         }
     }
 }

@@ -89,5 +89,6 @@ namespace CodeAnalizerTests
             Assert.AreEqual(expected, output);
         }
 
+        
     }
 }

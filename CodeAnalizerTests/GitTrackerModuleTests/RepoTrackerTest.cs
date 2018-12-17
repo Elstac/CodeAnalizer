@@ -93,5 +93,17 @@ namespace CodeAnalizerTests.GitTrackerModuleTests
             Assert.AreEqual(expected, output);
         }
         
+        [Test]
+        public void GetAuthorsTest()
+        {
+            List<AuthorInfo> output = repoTracker.GetAuthorts();
+
+            List<AuthorInfo> expected = new List<AuthorInfo>()
+            {
+                new AuthorInfo("Jan Pawel II","jp2@gmd.pl"),
+                new AuthorInfo("Jakub","1elstac1@gmail.com")
+            };
+            Assert.AreEqual(expected, output);
+        }
     }
 }

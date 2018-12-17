@@ -132,5 +132,10 @@ namespace CodeAnalizer.GitTrackerModule.Classes
             }
             return ret;
         }
+
+        public List<AuthorInfo> GetAuthorts()
+        {
+            return new List<AuthorInfo>() { new AuthorInfo(name, email, commits) };
+        }
     }
 }

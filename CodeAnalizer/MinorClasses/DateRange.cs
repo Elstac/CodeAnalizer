@@ -17,7 +17,7 @@ namespace CodeAnalizer
         public DateRange(DateTime begin, DateTime end)
         {
             this.begin = begin;
-            this.end = begin;
+            this.end = end;
         }
 
         public DateRange(DateTime date)
